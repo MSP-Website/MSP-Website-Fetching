@@ -1,0 +1,125 @@
+/* General Styles */
+.section_one h2.bestStudent {
+  padding: 0 !important;
+  display: inline-block;
+}
+
+#bestStudent {
+  width: 100%;
+  opacity: 0;
+  overflow: hidden;
+  display: inline-block;
+  border-right: 0 solid;
+  border-left: 0 solid;
+  white-space: nowrap;
+  color: var(--main-text-color) !important;
+}
+
+#bestStudent span {
+  color: var(--purple-accent) !important;
+}
+
+.section_one h2 {
+  margin-bottom: 2px !important;
+  font-size: 35px !important;
+  font-weight: 600 !important;
+  margin-top: 15px !important;
+}
+
+.section_one p.des-info-bestStudent {
+  opacity: 0;
+  transform: translate(0, -10px);
+  font-size: 15px !important;
+  padding-top: 3px;
+  color: var(--secondary-text-color) !important;
+  font-weight: 400 !important;
+}
+.card-group{
+  gap: 20px;
+}
+/* Grid Layout */
+#data .grid {
+  display: grid;
+  grid-template-columns: repeat(2 , 1fr);
+  gap: 20px;
+}
+
+.grid .section img {
+  width: 100%;
+}
+
+.card {
+  box-shadow: var(--box-shadow);
+}
+
+/* Card Styles */
+.card-blog {
+  opacity: 0;
+  transform: translate(-20px, -20px);
+
+}
+
+.card-blog:nth-of-type(even) {
+  transform: translate(20px, -20px);
+}
+
+.card img {
+  width: 100%;
+  height: 46.4vh;
+}
+
+.icons {
+  width: 100%;
+  justify-content: end;
+  gap: 10px;
+}
+
+.fa-brands {
+  color: #030303 !important;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  border: solid var(--secondary-text-color) 1px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.fa-brands:hover {
+  color: var(--main-bg-nav-color) !important;
+  background-color: var(--purple-accent) !important;
+  cursor: pointer !important;
+  transition: var(--transation);
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.box {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  top: 30px;
+  left: 30px;
+  border-radius: 13px;
+  text-align: center;
+  padding: 4px;
+}
+
+
+
+/* Media Queries */
+@media screen and (max-width: 767px) {
+  #data .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #data .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

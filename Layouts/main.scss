@@ -1,0 +1,533 @@
+@use "./_global-variables.scss";
+@use "./splash-screen";
+@use "./_nav-bar.scss";
+@use "./home";
+@use "./ourGallery";
+@use "./info";
+@use "./ourTeam";
+@use "./animation-on-scroll";
+@use "./next-previous-btns";
+@use "./PrevNext";
+@use "./contact";
+@use "./joinUs";
+
+@mixin centringTings-inTheMiddle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#ourCommittes {
+    div {
+
+        // width: 100%;
+        // width: 95%;
+        // margin: 0 auto;
+        header {
+            div {
+                padding: 6dvh 0 3dvh !important;
+                text-align: center !important;
+                overflow: hidden !important;
+
+                h2 {
+                    margin-bottom: 0 !important;
+                    line-height: normal !important;
+                    font-size: 2.3rem !important;
+                    font-weight: 600 !important;
+                    display: inline-block !important;
+
+                    .main-effect {
+                        display: inline-block;
+                        color: var(--purple-accent);
+                        border-right: 0px solid;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        width: 100%;
+                        // animation: 
+                        // showing-text 2s ,
+                        // cursor 0.4s step-end alternate;
+                    }
+                }
+
+                p {
+                    margin: 0 !important;
+                    color: var(--secondary-text-color) !important;
+                    font-weight: 500 !important;
+                    transform: translateY(300%);
+                    transition: 0.7s !important;
+                    line-height: normal !important;
+                }
+            }
+        }
+
+        section#developers {
+            div {
+                overflow-x: hidden;
+
+                div.info {
+                    // transform: scale(1);
+                    overflow: hidden !important;
+
+                    // animation:small-text linear;
+                    // animation-timeline: scroll();
+                    h2 {
+                        font-size: 2.3rem !important;
+                        font-weight: 700 !important;
+                        transition: 0.7s !important;
+                    }
+
+                    .developersTitle {
+                        margin-bottom: 0rem !important;
+                        font-family: inherit;
+                        font-weight: 700 !important;
+                        line-height: normal !important;
+                        transition: 0.7s !important;
+                        transform: translateY(-300%);
+                    }
+
+                    .infoTitle {
+                        transform: translateY(-300%);
+                    }
+
+                    .dev-describtion {
+                        width: 82% !important;
+                        color: var(--secondary-text-color) !important;
+                        font-size: 0.83rem !important;
+                        margin: 0 !important;
+                        transition: 0.7s ease;
+                        opacity: 0;
+                    }
+
+                    .services {
+                        color: var(--main-text-color) !important;
+                        background-color: var(--main-background-color) !important;
+                        // width: 22% !important;
+                        transform: translateX(-100%);
+                        display: inline-block;
+                        padding: 8px !important;
+                        border-radius: 8px !important;
+                        // margin-top: 2vh !important;
+                        margin: 2vh 0 0 !important;
+                    }
+                }
+
+                div.details {
+                    display: flex !important;
+                    flex-wrap: wrap !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    gap: 2% !important;
+
+                    .t1,
+                    .t2,
+                    .t3 {
+                        width: 32% !important;
+                        margin: 3dvh 0 !important;
+                        padding: 10px 0 0 !important;
+                    }
+
+                    .t4,
+                    .t5 {
+                        padding: 10px 0 0 !important;
+                        width: 49% !important;
+                    }
+
+                    .track {
+                        opacity: 0;
+                        transform: translateY(20px);
+                        transition: 0.7s;
+
+                        fieldset {
+                            outline-color: #fee9ff !important;
+                            border: 3px solid #fee9ff !important;
+                            padding: 5px !important;
+                            border-radius: 12px !important;
+                            text-align: center !important;
+                            transition: 0.7s !important;
+
+                            &:hover {
+                                background-color: var(--purple-accent) !important;
+                                color: #fee9ff !important;
+                                cursor: url(./assests/./mouse-auto0-hover.png) 1 1, auto !important;
+
+                                h4 {
+                                    color: var(--main-background-color) !important;
+
+                                    &:hover {
+                                        cursor: url(./assests/./mouse-auto0-hover.png) 1 1, auto !important;
+                                    }
+                                }
+
+                                p {
+                                    cursor: url(./assests/./mouse-auto0-hover.png) 1 1, auto !important;
+                                    color: var(--main-background-color) !important;
+                                }
+
+                                legend {
+                                    font-size: 1rem !important;
+                                    box-shadow: 0px 0px 10px 0px var(--purple-accent) !important;
+                                }
+                            }
+
+                            legend {
+                                width: auto !important;
+                                margin: 0 auto !important;
+                                padding: 25px !important;
+                                background-color: #fee9ff !important;
+                                border-radius: 12px !important;
+                                position: relative !important;
+
+                                .icon-form-lordi {
+                                    @include centringTings-inTheMiddle;
+                                }
+
+                                svg {
+                                    background-color: #fee9ff !important;
+                                    position: absolute !important;
+                                    left: 50% !important;
+                                    top: 50% !important;
+                                    transform: translate(-50%, -50%) !important;
+                                }
+                            }
+
+                            p {
+                                color: var(--secondary-text-color) !important;
+                                // font-size: 0.63rem !important;
+                                font-size: 0.554rem !important;
+                                width: 80% !important;
+                                margin: 2vh auto !important;
+                                font-weight: 400 !important;
+
+                            }
+
+                            h4 {
+                                margin: 0 !important;
+                                font-weight: 600;
+                                line-height: normal !important;
+                                font-size: 1rem !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        section#non-tech {
+            .container-non-tech {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 12px !important;
+
+                div {
+                    &:first-child {
+                        display: flex !important;
+                        gap: 10px !important;
+                        align-items: center !important;
+                        overflow: hidden;
+
+                        h2 {
+                            font-size: 2.3rem !important;
+                            font-weight: 700 !important;
+                            display: inline-block !important;
+                            margin: 0 !important;
+                            transform: translateY(-300%);
+                        }
+
+                        img {
+                            padding: 12px !important;
+                            background-color: var(--main-background-color) !important;
+                            border-radius: 8px !important;
+                            opacity: 0;
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        p {
+                            color: var(--secondary-text-color) !important;
+                            font-size: 0.83rem !important;
+                            font-weight: 400 !important;
+                            margin: 0 !important;
+                            opacity: 0;
+                            transform: translateY(20px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    hr {
+        margin: 4vh 0 !important;
+        background-color: var(--secondary-text-color) !important;
+        border: 1px solid var(--secondary-text-color);
+        // height: 2px !important;
+        // background-color: var(--secondary-text-color) !important;
+    }
+}
+
+// --Small Device--
+@media (max-width: 767px) {
+    body {
+        overflow: hidden;
+    }
+
+    #ourCommittes {
+        .container {
+            text-align: center !important;
+
+            header {
+                div {
+                    h2 {
+                        font-size: 2rem !important;
+                    }
+
+                    p {
+                        font-size: 0.7rem !important;
+                    }
+                }
+            }
+
+            section#developers {
+                div {
+                    div.info {
+                        .dev-describtion {
+                            width: 100% !important;
+                            font-size: 0.73rem !important;
+                        }
+
+                        .services {
+                            width: 100% !important;
+                            margin: 2vh auto 0 !important;
+                        }
+                    }
+
+                    div.details {
+                        margin-top: 1dvh !important;
+
+                        .track {
+                            transform: translateX(200%);
+
+                            &:nth-of-type(even) {
+                                transform: translateX(-200%);
+                            }
+
+                            width: 100% !important;
+                            margin: 1dvh 0 !important;
+
+                            fieldset {
+                                p {
+                                    font-size: 0.375rem !important;
+                                }
+
+                                .big-title {
+                                    font-size: 0.563em !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            section#non-tech {
+                .container-non-tech {
+                    div {
+                        &:first-child {
+                            display: flex !important;
+                            gap: 10px !important;
+                            align-items: center;
+                            flex-direction: column;
+
+                            h2 {
+                                font-size: 1.25rem !important;
+                                transform: translateY(-400%);
+                            }
+                        }
+
+                        &:nth-child(2) p {
+                            font-size: 0.688rem !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// --Tablet--
+@media (min-width: 768px) and (max-width: 991px) {
+    #ourCommittes {
+        div {
+            header {
+                div {
+                    h2 {
+                        font-size: 1.3rem !important;
+                    }
+
+                    p {
+                        font-size: 0.43rem !important;
+                        transform: translateY(300%) !important;
+                    }
+                }
+            }
+
+            section#developers {
+                div {
+                    div.info {
+                        h2 {
+                            font-size: 1.3rem !important;
+                        }
+
+                        .dev-describtion {
+                            font-size: 0.43rem !important;
+                        }
+
+                        .services {
+                            width: 28% !important;
+                            font-size: 0.63rem !important;
+                        }
+                    }
+
+                    div.details {
+                        .track {
+                            fieldset {
+                                legend {
+                                    padding: 21px !important;
+                                }
+
+                                p {
+                                    font-size: 0.337rem !important;
+                                    margin: 1vh auto !important;
+                                }
+
+                                h4 {
+                                    font-size: 0.7rem !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            section#non-tech {
+                .container-non-tech {
+                    div {
+                        &:first-child {
+                            img {
+                                padding: 7px !important;
+                            }
+
+                            h2 {
+                                font-size: 1.563rem !important;
+                            }
+
+                        }
+
+                        &:nth-child(2) {
+                            p {
+                                font-size: 0.813rem !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// --Medium Laptop--
+@media (min-width: 992px) and (max-width: 1199px) {
+    #ourCommittes {
+        div {
+            header {
+                div {
+                    p {
+                        font-size: 0.57rem !important;
+                    }
+                }
+            }
+
+            section#developers {
+                div {
+                    div.info {
+                        .dev-describtion {
+                            width: 82% !important;
+                            color: var(--secondary-text-color) !important;
+                            font-size: 0.57rem !important;
+                        }
+
+                        .services {
+                            font-size: 0.66rem !important;
+                        }
+                    }
+
+                    div.details {
+                        .track {
+                            fieldset {
+                                p {
+                                    font-size: 0.435rem !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            section#non-tech {
+                .container-non-tech {
+                    div {
+                        &:first-child {
+                            img {
+                                padding: 7px !important;
+                            }
+
+                            h2 {
+                                font-size: 2rem !important;
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            p {
+                                font-size: 0.79rem !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes cursor {
+    50% {
+        border-color: transparent
+    }
+
+
+}
+
+@keyframes showing-text {
+    from {
+        width: 0;
+        border-right: 5px solid;
+    }
+}
+
+@keyframes showing-text-reverse {
+    from {
+        width: 0;
+        border-left: 5px solid;
+    }
+}
+
+@keyframes small-text {
+    to {
+        transform: scale(0);
+    }
+}
+
+.show1 {
+    transform: translateY(00%) !important;
+}
+
+// @use "./our-gallery";

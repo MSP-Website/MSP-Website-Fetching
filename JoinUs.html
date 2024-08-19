@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title Of Website -->
+    <title>Register Form</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assests/logo2.png" type="image/x-icon" />
+    <!-- font's Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Castoro&family=Fredericka+the+Great&family=Inclusive+Sans&family=Lobster&family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Oxygen:wght@300;400;700&family=Poppins:wght@100;200;300;400;600;700;800;900&family=Princess+Sofia&family=Roboto+Condensed:wght@100;200&family=Roboto:wght@100;300;400;500;700;900&family=Rubik+Broken+Fax&family=Rubik+Lines&family=Rubik:wght@300;400;500;600;700;800;900&family=STIX+Two+Text:wght@400;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body style="overflow: scroll;">
+
+    <div id="contact" class="joinUs">
+        <section class="mid">
+            <div class="all">
+                <h2 class="bestStudent">
+                    <span id="bestStudent" style="color: #000000;">
+                        Register in <span style="color: #7B1D80;">MSP Tech Club - Al Azhar University</span>
+                    </span>
+                </h2>
+                <!-- <h2>Register in <span>MSP Tech Club - Al Azhar University</span></h2> -->
+                <p class="des-info-bestStudent">Journey thousand miles begins with one step"
+                    Take this step with us. Apply for MSP and start a new journey full of valuable information and
+                    skills that you will not find anywhere else.</p>
+            </div>
+            <div id="timeline-wrap">
+                <div id="timeline"></div>
+                <a href="https://www.facebook.com/AlAzharTC" class="m2 timeline-icon iconTimeline">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://instagram.com/mspalazhar" class="m3 timeline-icon iconTimeline">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/msp-tech-club-al-azhar-university/mycompany/"
+                    class="mlast timeline-icon iconTimeline">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+        </section>
+
+    </div>
+    <div id="joinUs">
+        <form id="registerForm" class="container-registeration-form container">
+
+            <div class="container-inputs">
+                <div>
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+            </div>
+
+            <div class="container-inputs">
+                <div>
+                    <label for="phone">Phone Number (WhatsApp)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your WhatsApp number" required>
+                </div>
+                <div>
+                    <label for="altPhone">Another Phone Number (optional)</label>
+                    <input type="tel" id="altPhone" name="altPhone" placeholder="Enter another phone number">
+                </div>
+            </div>
+
+            <div class="container-inputs">
+                <div>
+                    <label for="facebook">Facebook Link</label>
+                    <input type="url" id="facebook" name="facebook" placeholder="Enter your Facebook link" required>
+                </div>
+                <div>
+                    <label for="faculty">Faculty</label>
+                    <input type="text" id="faculty" name="faculty" placeholder="Enter your faculty" required>
+                </div>
+            </div>
+
+            <div class="container-inputs">
+                <div>
+                    <label for="university">University</label>
+                    <input type="text" id="university" name="university" placeholder="Enter your university" required>
+                </div>
+                <div>
+                    <label for="academicYear">Academic Year</label>
+                    <select name="academicYear" id="academicYear" required>
+                        <option value="" disabled selected>Select your academic year</option>
+                        <option value="1st Academic year">1st Academic Year</option>
+                        <option value="2nd Academic year">2nd Academic Year</option>
+                        <option value="3rd Academic year">3rd Academic Year</option>
+                        <option value="4th Academic year">4th Academic Year</option>
+                        <option value="5th Academic year">5th Academic Year</option>
+                        <option value="6th Academic year">6th Academic Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="container-inputs">
+                <div>
+                    <label for="aboutMSP">What do you know about MSP?</label>
+                    <textarea id="aboutMSP" name="aboutMSP" placeholder="Write what you know about MSP"
+                        required></textarea>
+                </div>
+                <div>
+                    <label for="whyJoin">Why do you want to join us?</label>
+                    <textarea id="whyJoin" name="whyJoin" placeholder="Write why you want to join" required></textarea>
+                </div>
+            </div>
+
+            <div>
+                <label for="experience">Previous Experience (optional)</label>
+                <textarea id="experience" name="experience" placeholder="Write your previous experience"></textarea>
+            </div>
+
+            <div>
+                <label for="firstTrack">Choose your 1st Track</label>
+                <select id="firstTrack" name="firstTrack" required>
+                    <option value="" disabled selected>Select Track</option>
+                    <option value="UX-UI Design">UX-UI Design</option>
+                    <option value="Front-End">Front-End</option>
+                    <option value="Back-End">Back-End</option>
+                    <option value="Flutter">Flutter</option>
+                    <option value="Testing">Testing</option>
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
+                    <option value="Cyber Security">Cyber Security</option>
+                    <option value="Networks">Networks</option>
+                    <option value="c++">c++</option>
+                    <option value="Databases">Databases</option>
+                    <option value="Artificial intelligence ( AI ) ( Data analysis - ML )">Artificial intelligence ( AI )
+                        (
+                        Data analysis - ML )</option>
+                    <option value="Embedded system">Embedded system</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Video editing">Video editing</option>
+                    <option value="Human resources ( HR )">Human resources ( HR )</option>
+                    <option value="Public relations ( PR )">Public relations ( PR )</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Logistics">Logistics</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="secondTrack">Choose your 2nd Track</label>
+                <select id="secondTrack" name="secondTrack" required>
+                    <option value="" disabled selected>Select Track</option>
+                    <option value="UX-UI Design">UX-UI Design</option>
+                    <option value="Front-End">Front-End</option>
+                    <option value="Back-End">Back-End</option>
+                    <option value="Flutter">Flutter</option>
+                    <option value="Testing">Testing</option>
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
+                    <option value="Cyber Security">Cyber Security</option>
+                    <option value="Networks">Networks</option>
+                    <option value="c++">c++</option>
+                    <option value="Databases">Databases</option>
+                    <option value="Artificial intelligence ( AI ) ( Data analysis - ML )">Artificial intelligence ( AI )
+                        (
+                        Data analysis - ML )</option>
+                    <option value="Embedded system">Embedded system</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Video editing">Video editing</option>
+                    <option value="Human resources ( HR )">Human resources ( HR )</option>
+                    <option value="Public relations ( PR )">Public relations ( PR )</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Logistics">Logistics</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="questions">Any Questions? (optional)</label>
+                <textarea id="questions" name="questions" placeholder="Write any questions you have"></textarea>
+            </div>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="https://kit.fontawesome.com/306f44334f.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

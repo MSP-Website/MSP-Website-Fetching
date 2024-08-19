@@ -1,0 +1,51 @@
+// #data {
+//     .section_one {
+//         h2 {
+//             margin-bottom: 2px !important;
+//             font-size: 2.3rem !important;
+//             font-weight: 600 !important;
+
+//             span {
+//                 color: var(--purple-accent);
+//             }
+//         }
+
+//         p {
+//             margin: 0 !important;
+//             color: var(--secondary-text-color) !important;
+//             font-weight: 500 !important;
+//         }
+//     }
+
+//     .grid {
+//         display: grid;
+//         grid-template-areas: 'img1 img1 img1 img2 img2 img2'
+//             'img3 img3 img3 img4 img5 img5';
+//         gap: 20px;
+//     }
+
+//     .item1 {
+//         grid-area: img1;
+//     }
+
+//     .item2 {
+//         grid-area: img2;
+//     }
+
+//     .item3 {
+//         grid-area: img3;
+//     }
+
+//     .item4 {
+//         grid-area: img4;
+//     }
+
+//     .item5 {
+//         grid-area: img5;
+//     }
+
+//     .card {
+//         box-shadow: var(--box-shadow);
+
+//     }
+// }

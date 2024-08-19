@@ -1,0 +1,46 @@
+.content3 {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .content3 div {
+    border-radius: 8px;
+    border: 1px solid var(--Black, #030303);
+
+    box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.15);
+    margin: 7px;
+    padding: 10px;
+
+    transition: 0.5s;
+  }
+
+  .content3 div:hover .fa-angles-left {
+    animation: move-row 0.8s linear infinite;
+  }
+
+  .content3 div:hover .fa-angles-right {
+    animation: move-row-right 0.8s linear infinite;
+
+  }
+
+  @keyframes move-row {
+    100% {
+      transform: translateX(-8px);
+    }
+  }
+
+  @keyframes move-row-right {
+    100% {
+      transform: translateX(8px);
+    }
+  }
+
+  .row1,
+  .row2 {
+    display: flex;
+    padding: 10px;
+    text-align: center;
+  }
