@@ -4,7 +4,7 @@ async function GetCards(currentpage = 1) {
         method: "GET",
         redirect: "follow"
     };
-    var res = await fetch(`http://164.92.244.59:3000/sponsorsClient/get?page=${currentpage}&limit=4`, requestOptions);
+    var res = await fetch(`https://api.msp-alazhar.tech/sponsorsClient/get?page=${currentpage}&limit=4`, requestOptions);
     var data = await res.json();
     console.log("Sponsors : ", data);
     document.getElementById('sponsor-grid').innerHTML = "";
@@ -45,7 +45,7 @@ async function getCardsTeamHome(currentpage = 1) {
         method: "GET",
         redirect: "follow"
     };
-    var response = await fetch(`http://164.92.244.59:3000/teamMembersClient/get?page=${currentpage}&limit=4`, requestOptions);
+    var response = await fetch(`https://api.msp-alazhar.tech/teamMembersClient/get?page=${currentpage}&limit=4`, requestOptions);
     var data = await response.json();
     console.log("Teams Home : ", data);
     document.getElementById('GridTeam').innerHTML = "";
@@ -96,7 +96,7 @@ async function getCardsTeamPage(currentpage = 1) {
         method: "GET",
         redirect: "follow"
     };
-    var response = await fetch(`http://164.92.244.59:3000/teamMembersClient/get?page=${currentpage}&limit=6`, requestOptions);
+    var response = await fetch(`https://api.msp-alazhar.tech/teamMembersClient/get?page=${currentpage}&limit=6`, requestOptions);
     var data = await response.json();
     console.log("Team Page : ", data);
     document.getElementById("teams").innerHTML = "";
@@ -190,7 +190,7 @@ async function getCardsBlogs(currentpage = 1) {
         method: "GET",
         redirect: "follow"
     };
-    var res = await fetch(`http://164.92.244.59:3000/blogsClient/get?page=${currentpage}&limit=5`, requestOptions);
+    var res = await fetch(`https://api.msp-alazhar.tech/blogsClient/get?page=${currentpage}&limit=5`, requestOptions);
     var data = await res.json();
     console.log("Blogs : ", data);
 

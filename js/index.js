@@ -79,7 +79,7 @@ function getAllGallery(pageNum) {
     redirect: "follow",
   };
   fetch(
-    `http://164.92.244.59:3000/galleryClient/get?page=${pageNum || 1}&limit=10`,
+    `https://api.msp-alazhar.tech/galleryClient/get?page=${pageNum || 1}&limit=10`,
     requestOptions
   )
     .then((res) => res.json())
@@ -134,7 +134,7 @@ function getEventsGallery(pageNum) {
     redirect: "follow",
   };
   fetch(
-    `http://164.92.244.59:3000/galleryClient/getEvents?page=${pageNum || 1
+    `https://api.msp-alazhar.tech/galleryClient/getEvents?page=${pageNum || 1
     }&limit=10`,
     requestOptions
   )
@@ -192,7 +192,7 @@ function getSessionsGallery(pageNum) {
     redirect: "follow",
   };
   fetch(
-    `http://164.92.244.59:3000/galleryClient/getSessions?page=${pageNum || 1
+    `https://api.msp-alazhar.tech/galleryClient/getSessions?page=${pageNum || 1
     }&limit=10`,
     requestOptions
   )
