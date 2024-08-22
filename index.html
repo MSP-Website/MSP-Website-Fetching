@@ -29,6 +29,7 @@
     <img src="./assests/splash-logo2.webp" alt="logo-image" width="50" height="50" class="logo">
   </div>
   <div class="scroll-top"></div>
+
   <!-- Start Nav Bar -->
   <div class="container">
     <a href="JoinUs.html" target="_blank">
@@ -50,34 +51,35 @@
       <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
         <ul class="navbar-nav  ">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" data-for="home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Our Committees</a>
+            <a class="nav-link" data-for="ourCommittes">Our Committees</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Gallery</a>
+            <a class="nav-link " data-for="ourGallery">Gallery</a>
           </li>
           <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
               About Us
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item " href="#"><i class="fa-regular fa-star mr-2"></i>
+              <a class="dropdown-item " data-for="info">
+                <i class="fa-regular fa-star mr-2"></i>
                 <span>Information About
                   us</span>
                 <i class="fa-solid fa-arrow-right ml-2"></i>
               </a>
-              <a class="dropdown-item " href="#"><i class="fa-solid fa-people-group  mr-2"></i>
-                <span>our
-                  team</span>
+              <a class="dropdown-item " data-for="ourTeam">
+                <i class="fa-solid fa-people-group  mr-2"></i>
+                <span>our team</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </a>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item " data-for="our blog">
                 <i class="fa-solid fa-blog  mr-2"></i>
-
-                <span>Blog</span>
-                <i class="fa-solid fa-arrow-right"></i></a>
+                <span>Our Blog</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </li>
           <li class="nav-item">
@@ -85,29 +87,27 @@
           </li>
           <li class="nav-item">
             <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="search">
-              <i class="fa-solid fa-search"></i>
-
+              <input class="form-control mr-sm-2 " id="searchBtn" type="text" placeholder="search">
+              <i class="fa-solid fa-search" id="searchButton"></i>
+              <div class="suggestions" id="suggestions"></div>
           </li>
-          <!-- <li class="nav-item">
-                      <div class="toggle-btn" id="btn">
-                          <i class="fa-solid fa-moon"></i>
-                      </div>
-                      </span>
-                  </li> -->
-          <!-- <li class="nav-item">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><span>اللغة العربية</span></button>
-
-          </li> -->
         </ul>
       </div>
-
     </div>
     </div>
   </nav>
+
+  <div class="container">
+    <div class="form-inline my-2 my-lg-0" id="form">
+      <input class="form-control mr-sm-2 n" type="text" placeholder="search" id="searchBtns">
+      <i class="fa-solid fa-search " id="searchButtons"></i>
+      <div class="suggestions " id="suggestionss"></div>
+    </div>
+  </div>
   <!-- End Nav-->
   <!-- End Header -->
   <!-- Start Home -->
+
   <main id="home">
     <!-- Start Section One -->
     <section class="section_one">
@@ -212,7 +212,7 @@
     </section>
     <!-- End Section One -->
     <!-- start our committes -->
-    <section class="section_two">
+    <section class="section_two" id="committe">
       <div class="first">
         <hr class="line-over line-over-mobile">
       </div>
@@ -227,8 +227,8 @@
           <p class="desBestStudent">Enjoy the many advantages of choosing the service you want to learn and develop your
             skills</p>
         </div>
-        <div class="committeeGrid">
-          <div class="sections">
+        <div class="committeeGrid" id="committeeGrid">
+          <div class="sections" id="sections">
             <div class="icon_width">
               <div class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="31" height="24" viewBox="0 0 31 24" fill="none">
@@ -252,7 +252,7 @@
               <p>
                 Designers who focus on creating comfortable, easy-to-use user experiences and good design.
               </p>
-              <a href=""><span>Learn more</span>
+              <a href="javascript:void(0);" id="btn-sections"class="btn-sections" data-for="ourCommittes"><span>Learn more</span>
                 <span>
                   <i class="fa-solid fa-arrow-right-long ml-1"></i>
                 </span></a>
@@ -278,8 +278,8 @@
               <p>
                 Developers who write the code that appears on the user interface, whether the website,
                 dashboard.</p>
-              <a href=""><span>Learn more</span>
-                <span>
+                <a href="javascript:void(0);" id="btn-sections"class="btn-sections" data-for="ourCommittes"><span>Learn more</span>
+                  <span>
                   <i class="fa-solid fa-arrow-right-long ml-1"></i>
                 </span></a>
             </div>
@@ -299,8 +299,8 @@
                 Back-End </h3>
               <p>
                 Developers who write code that runs on a web server and manage databases. </p>
-              <a href=""><span>Learn more</span>
-                <span>
+                <a href="javascript:void(0);" id="btn-sections"class="btn-sections" data-for="ourCommittes"><span>Learn more</span>
+                  <span>
                   <i class="fa-solid fa-arrow-right-long ml-1"></i>
                 </span></a>
             </div>
@@ -321,8 +321,8 @@
               <p>
                 Developers who write mobile apps using Flutter, a toolkit for developing native,
                 cross-platform mobile apps </p>
-              <a href=""><span>Learn more</span>
-                <span>
+                <a href="javascript:void(0);" id="btn-sections"class="btn-sections" data-for="ourCommittes"><span>Learn more</span>
+                  <span>
                   <i class="fa-solid fa-arrow-right-long ml-1"></i>
                 </span></a>
             </div>
@@ -344,8 +344,8 @@
               <p>
                 covers Fundamentals of python programming ,applying OOP concepts and the way to how to think
                 and solve.... </p>
-              <a href=""><span>Learn more</span>
-                <span>
+                <a href="javascript:void(0);" id="btn-sections"class="btn-sections" data-for="ourCommittes"><span>Learn more</span>
+                  <span>
                   <i class="fa-solid fa-arrow-right-long ml-1"></i>
                 </span></a>
             </div>
@@ -366,7 +366,7 @@
               <p>
                 Creating designs using Adobe Photoshop and Adobe Illustrator for logos, illustrarions,
                 manipulations and others </p>
-              <a href=""><span>Learn more</span>
+              <a href="javascript:void(0);" id="btn-sections"class="btn-sections" data-for="ourCommittes"><span>Learn more</span>
                 <span>
                   <i class="fa-solid fa-arrow-right-long ml-1"></i>
                 </span></a>
@@ -375,14 +375,14 @@
 
         </div>
         <div class="button_width">
-          <button class="btn-sections"><a href="http://" target="_blank">see more</a></button>
+          <button class="btn-sections" data-for="ourCommittes" ><a href="javascript:void(0);">see more</a></button>
 
         </div>
       </div>
     </section>
     <!-- End our committes -->
     <!-- start our features -->
-    <section class="section_two">
+    <section class="section_two" id="feature">
       <div class="first">
         <hr class="line-over-2 line-over-mobile">
       </div>
@@ -467,7 +467,7 @@
     </section>
     <!-- End our featurea -->
     <!-- start our Team -->
-    <section class="section_two">
+    <section class="section_two" id="our-team">
       <div class="first">
         <hr class="line-over-3 line-over-mobile">
       </div>
@@ -485,14 +485,14 @@
         <div class="GridTeam" id="GridTeam">
         </div>
         <div class="button_width">
-          <button class="btn-sections"><a href="http://" target="_blank">Read More</a></button>
+          <button class="btn-sections team" data-for="ourTeam"><a href="javascript:void(0);">Read More</a></button>
 
         </div>
       </div>
     </section>
     <!-- end our Team -->
     <!-- start our sponsers -->
-    <section class="section_two">
+    <section class="section_two" id="sponsors">
       <div class="first">
         <hr class="line-over-4 line-over-mobile">
       </div>
@@ -536,9 +536,9 @@
           <p class="desBestStudent">Still you have any questions? Contact our Team via <span>
               msp.alazhar@gmail.com</span></p>
         </div>
-        <div class="questionsGrid">
+        <div class="questionsGrid " id="FAQ">
           <div class="sectionOne Questions-Asked">
-            <details>
+            <details >
               <summary>How do I apply for MSP Al-Azhar?</summary>
               <hr>
               <p>Applications for MSP Al-Azhar are opened every year in the month of October. The most
@@ -612,19 +612,29 @@
               <h4>Ask your question</h4>
               <hr>
               <div class="form">
-                <form>
+                <form method="post" name="contactformData">
                   <div class="inputs">
                     <label for="name">Your Name</label>
-                    <input type="text" name="name" placeholder="Enter Your Name" id="name">
+                    <input type="text" name="Name" placeholder="Enter Your Name" id="name" required>
                     <label for="email">Your Email</label>
-                    <input type="email" name="email" placeholder="Enter Your Email" id="email">
+                    <input type="email" name="Email" placeholder="Enter Your Email" id="email" required>
                     <label for="question">Your Question</label>
-                    <textarea name="question" id="question" placeholder="Enter Your Question here..."></textarea>
+                    <textarea name="Question" id="question" placeholder="Enter Your Question here..."
+                      required></textarea>
                   </div>
                   <div class="butn">
                     <input type="submit" value="submit">
                   </div>
                 </form>
+
+                <div id="alertsss">
+                  <div id="custom-alert" class="custom-alert hidden">
+                    <i class="fa-solid fa-check"></i>
+                    <p id="alert-message"></p>
+                    <button id="close-alert">&times;</button>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -669,46 +679,43 @@
         <div class="left">
           <div class="home">
             <h6>Home</h6>
-            <a href="">
+            <a href="#feature">
               <p>features</p>
             </a>
-            <a href="">
-              <p>Searvices</p>
+            <a href="#committe">
+              <p>Our Committees</p>
             </a>
-            <a href="">
+            <a href="#our-team">
               <p>Team</p>
             </a>
             <a href="">
-              <p>Meambers Reviews</p>
+              <p>Members Reviews</p>
             </a>
-            <a href="">
+            <a href="#sponsors">
               <p>Our Customers</p>
             </a>
-            <a href="">
+            <a href="#FAQ">
               <p>FAQ</p>
             </a>
           </div>
           <div class="abt-us">
             <h6>About Us</h6>
-            <a href="/info.html">
+            <a data-for="info" class="info">
               <p>Information about us</p>
             </a>
-            <a href="">
-              <p>Our Mission</p>
-            </a>
-            <a href="">
+            <a data-for="our blog" class="blog">
               <p>Blog</p>
             </a>
-            <a href="">
+            <a href="#ourTeam" class="team">
               <p>Our Teams</p>
             </a>
           </div>
           <div class="academics">
             <h6>Academics</h6>
-            <a href="">
+            <a href="#feature">
               <p>Features</p>
             </a>
-            <a href="">
+            <a href="#ourGallery" class="ourGallery">
               <p>Gallery</p>
             </a>
           </div>
@@ -771,7 +778,7 @@
         </div>
       </header>
       <!-- Start Section Developers -->
-      <section id="developers">
+      <section id="developers" class="allCommittees">
         <div>
           <div class="info">
             <h2 class="developersTitle infoTitle">Developers</h2>
@@ -884,7 +891,7 @@
     <hr />
     <!-- Start Section Techoons -->
     <div class="container">
-      <section id="developers">
+      <section id="developers" class="allCommittees">
         <div>
           <div class="info">
 
@@ -1132,7 +1139,7 @@
     <hr />
     <!-- Start Section Media -->
     <div class="container">
-      <section id="developers">
+      <section id="developers" class="allCommittees">
         <div>
           <div class="info">
             <h2 class="infoTitle">Media</h2>
@@ -1297,7 +1304,7 @@
     <hr />
     <!-- Start section hr -->
     <div class="container">
-      <section id="non-tech">
+      <section id="non-tech" class="allCommittees">
         <div class="container-non-tech">
           <div>
             <img src="./assests/hr-icon.webp" alt="HR Icon" class="non-tech-icon" />
@@ -1320,7 +1327,7 @@
     <hr />
     <!-- Start section Logistics -->
     <div class="container">
-      <section id="non-tech">
+      <section id="non-tech" class="allCommittees">
         <div class="container-non-tech">
           <div>
             <img src="./assests/logistics-icon.webp" alt="Logistics Icon" class="non-tech-icon" />
@@ -1341,7 +1348,7 @@
     <hr />
     <!-- Start section PR -->
     <div class="container">
-      <section id="non-tech">
+      <section id="non-tech" class="allCommittees">
         <div class="container-non-tech">
           <div>
             <img src="./assests/pr-icon.webp" alt="Public relations Icon" class="non-tech-icon" />
@@ -1366,7 +1373,7 @@
     <hr />
     <!-- Start section Marketing -->
     <div class="container">
-      <section id="non-tech">
+      <section id="non-tech" class="allCommittees">
         <div class="container-non-tech">
           <div>
             <img src="./assests/marketing-icon.webp" alt="Marketing Icon" class="non-tech-icon" />
@@ -1421,46 +1428,43 @@
         <div class="left">
           <div class="home">
             <h6>Home</h6>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>features</p>
             </a>
-            <a href="">
-              <p>Searvices</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Our Committees</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Team</p>
             </a>
-            <a href="">
-              <p>Meambers Reviews</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Members Reviews</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Our Customers</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>FAQ</p>
             </a>
           </div>
           <div class="abt-us">
             <h6>About Us</h6>
-            <a href="/info.html">
+            <a data-for="info" class="info">
               <p>Information about us</p>
             </a>
-            <a href="">
-              <p>Our Mission</p>
-            </a>
-            <a href="">
+            <a data-for="our blog" class="blog">
               <p>Blog</p>
             </a>
-            <a href="">
+            <a href="#ourTeam" class="team">
               <p>Our Teams</p>
             </a>
           </div>
           <div class="academics">
             <h6>Academics</h6>
-            <a href="">
+            <a href="#feature">
               <p>Features</p>
             </a>
-            <a href="">
+            <a href="#ourGallery" class="ourGallery">
               <p>Gallery</p>
             </a>
           </div>
@@ -1505,10 +1509,8 @@
     </footer>
   </main>
   <!-- End Our Committies Page -->
-
   <!-- start Our Gallery -->
   <main id="ourGallery" style="opacity: 0; display: none;">
-
     <div class="container">
       <header>
         <div>
@@ -1627,7 +1629,6 @@
           </div>
         </article>
       </section>
-      <!-- End Section Developers -->
     </div>
     <footer>
       <hr />
@@ -1666,46 +1667,43 @@
         <div class="left">
           <div class="home">
             <h6>Home</h6>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>features</p>
             </a>
-            <a href="">
-              <p>Searvices</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Our Committees</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Team</p>
             </a>
-            <a href="">
-              <p>Meambers Reviews</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Members Reviews</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Our Customers</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>FAQ</p>
             </a>
           </div>
           <div class="abt-us">
             <h6>About Us</h6>
-            <a href="/info.html">
+            <a data-for="info" class="info">
               <p>Information about us</p>
             </a>
-            <a href="">
-              <p>Our Mission</p>
-            </a>
-            <a href="">
+            <a data-for="our blog" class="blog">
               <p>Blog</p>
             </a>
-            <a href="">
+            <a href="#ourTeam" class="team">
               <p>Our Teams</p>
             </a>
           </div>
           <div class="academics">
             <h6>Academics</h6>
-            <a href="">
+            <a href="#feature">
               <p>Features</p>
             </a>
-            <a href="">
+            <a href="#ourGallery" class="ourGallery">
               <p>Gallery</p>
             </a>
           </div>
@@ -2366,46 +2364,43 @@
         <div class="left">
           <div class="home">
             <h6>Home</h6>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>features</p>
             </a>
-            <a href="">
-              <p>Searvices</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Our Committees</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Team</p>
             </a>
-            <a href="">
-              <p>Meambers Reviews</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Members Reviews</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Our Customers</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>FAQ</p>
             </a>
           </div>
           <div class="abt-us">
             <h6>About Us</h6>
-            <a href="/info.html">
+            <a data-for="info" class="info">
               <p>Information about us</p>
             </a>
-            <a href="">
-              <p>Our Mission</p>
-            </a>
-            <a href="">
+            <a data-for="our blog" class="blog">
               <p>Blog</p>
             </a>
-            <a href="">
+            <a href="#ourTeam" class="team">
               <p>Our Teams</p>
             </a>
           </div>
           <div class="academics">
             <h6>Academics</h6>
-            <a href="">
+            <a href="#feature">
               <p>Features</p>
             </a>
-            <a href="">
+            <a href="#ourGallery" class="ourGallery">
               <p>Gallery</p>
             </a>
           </div>
@@ -2450,7 +2445,7 @@
     </footer>
 
   </main>
-  <main id="our team" style="opacity: 0; display: none;">
+  <main id="ourTeam" style="opacity: 0; display: none;  ">
     <div id="ourTeam">
       <div class="content1">
         <h2 class="bestStudent">
@@ -2466,14 +2461,14 @@
       <div class="cards" id="teams"></div>
       <!-- start the content3 -->
       <div class="content3">
-          <div class="row1" id="previousteam" >
-              <i class="fa-solid fa-angles-left" style="color: #7b1d80;"></i>
-          </div>
-          <div class="row2" id="nextteam" >
-              <i class="fa-solid fa-angles-right" style="color: #7b1d80;"></i>
-          </div>
+        <div class="row1" id="previousteam">
+          <i class="fa-solid fa-angles-left" style="color: #7b1d80;"></i>
+        </div>
+        <div class="row2" id="nextteam">
+          <i class="fa-solid fa-angles-right" style="color: #7b1d80;"></i>
+        </div>
       </div>
-      
+
     </div>
 
     <footer>
@@ -2513,46 +2508,43 @@
         <div class="left">
           <div class="home">
             <h6>Home</h6>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>features</p>
             </a>
-            <a href="">
-              <p>Searvices</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Our Committees</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Team</p>
             </a>
-            <a href="">
-              <p>Meambers Reviews</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Members Reviews</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Our Customers</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>FAQ</p>
             </a>
           </div>
           <div class="abt-us">
             <h6>About Us</h6>
-            <a href="/info.html">
+            <a data-for="info" class="info">
               <p>Information about us</p>
             </a>
-            <a href="">
-              <p>Our Mission</p>
-            </a>
-            <a href="">
+            <a data-for="our blog" class="blog">
               <p>Blog</p>
             </a>
-            <a href="">
+            <a href="#ourTeam" class="team">
               <p>Our Teams</p>
             </a>
           </div>
           <div class="academics">
             <h6>Academics</h6>
-            <a href="">
+            <a href="#feature">
               <p>Features</p>
             </a>
-            <a href="">
+            <a href="#ourGallery" class="ourGallery">
               <p>Gallery</p>
             </a>
           </div>
@@ -2662,46 +2654,43 @@
         <div class="left">
           <div class="home">
             <h6>Home</h6>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>features</p>
             </a>
-            <a href="">
-              <p>Searvices</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Our Committees</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Team</p>
             </a>
-            <a href="">
-              <p>Meambers Reviews</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Members Reviews</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Our Customers</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>FAQ</p>
             </a>
           </div>
           <div class="abt-us">
             <h6>About Us</h6>
-            <a href="/info.html">
+            <a data-for="info" class="info">
               <p>Information about us</p>
             </a>
-            <a href="">
-              <p>Our Mission</p>
-            </a>
-            <a href="">
+            <a data-for="our blog" class="blog">
               <p>Blog</p>
             </a>
-            <a href="">
+            <a href="#ourTeam" class="team">
               <p>Our Teams</p>
             </a>
           </div>
           <div class="academics">
             <h6>Academics</h6>
-            <a href="">
+            <a href="#feature">
               <p>Features</p>
             </a>
-            <a href="">
+            <a href="#ourGallery" class="ourGallery">
               <p>Gallery</p>
             </a>
           </div>
@@ -2815,31 +2804,38 @@
           <i class="fa-brands fa-linkedin"></i>
         </a>
       </div>
-      <div class="cont">
-        <!-- <form action=""> -->
-        <div>
-          <label for="f-name">First Name</label>
-          <input type="text" name="f-name" placeholder="Enter First Name">
-        </div>
-        <div>
-          <label for="s-name">Second Name</label>
-          <input type="text" name="s-name" placeholder="Enter Second Name">
-        </div>
-        <div>
-          <label for="email">Email Address</label>
-          <input type="email" name="email" placeholder="Enter Email Address">
-        </div>
-        <div>
-          <label for="tel">Phone Number</label>
-          <input type="tel" name="tel" placeholder="Enter Phone Number">
-        </div>
-        <div>
-          <label for="msg">Message</label>
-          <textarea name="msg" rows="10" placeholder="Enter your Message here..."></textarea>
-          <input type="submit" value="Send">
+      <div class="cont" id="dataForm">
+        <form method="post" name="contact-form">
+          <div>
+            <label for="f-name">First Name</label>
+            <input type="text" name="First-Name" id="f-name" placeholder="Enter First Name">
+          </div>
+          <div>
+            <label for="s-name">Second Name</label>
+            <input type="text" name="Second-Name" id="s-name" placeholder="Enter Second Name">
+          </div>
+          <div>
+            <label for="email">Email Address</label>
+            <input type="email" name="Email" id="email" placeholder="Enter Email Address">
+          </div>
+          <div>
+            <label for="tel">Phone Number</label>
+            <input type="tel" name="Phone-Number" id="phone_number" placeholder="Enter Phone Number">
+          </div>
+          <div>
+            <label for="msg">Message</label>
+            <textarea name="Message" rows="10" placeholder="Enter your Message here..." id="message"></textarea>
+            <input type="submit" value="Send" onclick="">
+          </div>
+        </form>
+      </div>
+      <div id="alerts">
+        <div id="custom-alert-contact" class="custom-alert hidden">
+          <i class="fa-solid fa-check"></i>
+          <p id="alert-message-contact"></p>
+          <button id="close-alert-contact">&times;</button>
         </div>
       </div>
-      <!-- </form> -->
       </div>
     </section>
     <hr class="main main-contact">
@@ -2853,7 +2849,7 @@
       <p class="p des-info-bestStudent">Still you have any questions? Contact our Team via
         <a href="mailto:msp.alazhar@gmail.com">msp.alazhar@gmail.com</a>
       </p>
-      <details>
+      <details open>
         <summary>How do I apply for MSP Al-Azhar?</summary>
         <hr>
         <p>Applications for MSP Al-Azhar are opened every year in the month of October. The most
@@ -2959,46 +2955,43 @@
         <div class="left">
           <div class="home">
             <h6>Home</h6>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>features</p>
             </a>
-            <a href="">
-              <p>Searvices</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Our Committees</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Team</p>
             </a>
-            <a href="">
-              <p>Meambers Reviews</p>
+            <a data-for="home" class="all_footer_links">
+              <p>Members Reviews</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>Our Customers</p>
             </a>
-            <a href="">
+            <a data-for="home" class="all_footer_links">
               <p>FAQ</p>
             </a>
           </div>
           <div class="abt-us">
             <h6>About Us</h6>
-            <a href="/info.html">
+            <a data-for="info" class="info">
               <p>Information about us</p>
             </a>
-            <a href="">
-              <p>Our Mission</p>
-            </a>
-            <a href="">
+            <a data-for="our blog" class="blog">
               <p>Blog</p>
             </a>
-            <a href="">
+            <a href="#ourTeam" class="team">
               <p>Our Teams</p>
             </a>
           </div>
           <div class="academics">
             <h6>Academics</h6>
-            <a href="">
+            <a href="#feature">
               <p>Features</p>
             </a>
-            <a href="">
+            <a href="#ourGallery" class="ourGallery">
               <p>Gallery</p>
             </a>
           </div>
@@ -3111,5 +3104,7 @@
   <script type="module" src="./js/index.js"></script>
   <script src="./js/script.js"></script>
   <script src="./js/lightbox-plus-jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </body>
+
 </html>

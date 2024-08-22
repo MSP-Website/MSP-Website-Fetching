@@ -444,6 +444,24 @@
 
                 }
 
+                &.highlight .icon {
+                    box-shadow: 0px 0px 10px 0px var(--purple-accent) !important;
+                }
+
+                &.highlight .text {
+                    background-color: var(--purple-accent) !important;
+                    color: #fee9ff !important;
+                    box-shadow: 0px 0px 15px 0px var(--purple-accent) !important;
+                    border: none !important;
+                }
+
+                &.highlight .text a,
+                &.highlight .text p,
+                &.highlight .text h3 {
+                    color: var(--main-background-color) !important;
+
+                }
+
             }
 
         }
@@ -867,6 +885,11 @@
 }
 
 @media only screen and ($media-mobile) {
+    #home .section_one {
+        background-color: var(--main-bg-nav-color) !important;
+        padding-top: 16px !important;
+    }
+
     #home .section_one .SectionGrid .col .carousel-item img {
         padding-top: 15px;
         width: 100% !important;
@@ -910,11 +933,27 @@
             .table {
                 display: block;
                 margin-top: 20px;
+                display: grid;
+                grid-template-areas:
+                    "header header header header header header"
+                    "left left left right right right"
+                    "footer footer footer footer footer footer";
+                gap: 10px;
+                text-align: center;
+                align-items: center;
+                padding: 10px;
+                justify-content: center;
 
                 .numbers {
                     padding: 16px 18px;
                     border-radius: 8px;
+                    display: grid;
+                    align-items: center;
                     border: 2px solid var(--secondary-text-color);
+
+                    h1 {
+                        font-size: 1.5rem !important;
+                    }
 
                     p {
                         font-size: 1rem;
@@ -926,10 +965,14 @@
 
                     &.number2 {
                         grid-area: left;
+                        width: 134px !important;
+                        height: 131.33px !important;
                     }
 
                     &.number3 {
                         grid-area: right;
+                        width: 134px !important;
+                        height: 131.33px !important;
 
                         p {
                             font-size: 0.8666rem;
@@ -941,24 +984,16 @@
                     }
                 }
 
-                display: grid;
-                grid-template-areas: 'header header header header header header'
-                'left left left right right right'
-                'footer footer footer footer footer footer';
-                gap: 10px;
-                text-align: center;
-                align-items: center;
-                padding: 10px;
             }
         }
 
         .headings {
             h2 {
                 &.bestStudent {
-                    font-size: 1rem !important;
+                    font-size: 1.1rem !important;
                 }
 
-                font-size: 32px;
+                // font-size: 32px;
 
             }
 
@@ -1501,3 +1536,66 @@
 .sponsor-card {
     animation: showTitleMsp 1s forwards;
 }
+
+.suggestions {
+    border-bottom: 1px solid #7b1d80;
+    border-radius: 8px;
+    max-height: 213px;
+    overflow-y: auto;
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    top: 64px;
+    right: 144px;
+    width: 16%;
+    border: none;
+    box-shadow: 0px 2px 26px 5px rgba(0, 0, 0, 0.15);
+    padding: 12px;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: var(--main-border-radius);
+    border: var(--border) !important;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.suggestion-item:hover {
+    background-color: var(--main-background-color) !important;
+    color: var(--purple-accent) !important;
+
+}
+
+@media only screen and ($media-mobile) {
+    .suggestions {
+        border-bottom: 1px solid #7b1d80;
+        border-radius: 8px;
+        max-height: 209px;
+        overflow-y: auto;
+        position: absolute;
+        background-color: white;
+        z-index: 1000;
+        top: 213px;
+        width: 90%;
+        border: none;
+        box-shadow: 0px 2px 26px 5px rgba(0, 0, 0, 0.15);
+        padding: 12px;
+        display: none;
+        left: 21px;
+    }
+
+    .suggestion-item {
+        padding: 8px;
+        cursor: pointer;
+        border-radius: var(--main-border-radius);
+        border: var(--border) !important;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+}
+

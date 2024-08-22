@@ -203,6 +203,33 @@
 
 
 @media only screen and ($media-mobile) {
+  .container {
+    #form {
+      display: block !important;
+      display: flex !important;
+      justify-content: flex-end;
+  
+      input {
+        border: 1px solid var(--purple-accent) !important;
+        outline: none !important;
+        padding: 14px !important;
+        border-radius: var(--third-border-radius) !important;
+  
+        &:focus {
+          box-shadow: none !important;
+        }
+      }
+  
+      .fa-search {
+        color: var(--purple-accent);
+        // margin-top: -39px;
+        margin-right: 13px;
+      }
+    }
+  }
+  .form-inline {
+    display: none;
+  }
   .banner {
     width: 98%;
   }
@@ -348,7 +375,7 @@ footer a:hover {
 
 footer .links i {
   color: var(--purple-accent);
-  border: 2px solid var(--purple-accent);
+  border: 2px solid var(--purple-accent) !important;
   border-radius: 8px;
   text-align: center;
   padding: 8px;
@@ -448,7 +475,7 @@ footer .bottom {
   footer .center {
     align-items: center;
     grid-template-columns: repeat(1, 1fr);
-    /* padding: 16px; */
+   padding: 16px !important; 
     text-align: center;
     display: grid;
 
@@ -496,7 +523,7 @@ button:focus {
 
 .social {
   position: relative;
-
+  // border: 2px solid #7B1D80 !important;
   &:first-child {
     z-index: 3;
 
@@ -676,4 +703,29 @@ button:focus {
   color: var(--main-bg-nav-color) !important;
   border-radius: var(--main-border-radius) !important;
 
+}
+
+.container {
+  #form {
+    display: none;
+
+    input {
+      border: 1px solid var(--purple-accent) !important;
+      outline: none !important;
+      padding: 8px ;
+      border-radius: var(--third-border-radius) !important;
+
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+
+    .fa-search {
+      color: var(--purple-accent);
+      margin-left: -30px;
+    }
+  }
+}
+.navbar .container ul li.nav-item a.nav-link.active {
+  color: #fff !important;
 }

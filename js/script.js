@@ -6,6 +6,7 @@ async function GetCards(currentpage = 1) {
     };
     var res = await fetch(`http://164.92.244.59:3000/sponsorsClient/get?page=${currentpage}&limit=4`, requestOptions);
     var data = await res.json();
+    console.log("Sponsors : ", data);
     document.getElementById('sponsor-grid').innerHTML = "";
     for (let i = 0; i < data.results.length; i++) {
         document.getElementById('sponsor-grid').innerHTML += `
@@ -206,13 +207,9 @@ async function getCardsBlogs(currentpage = 1) {
                 <img src="${data.results[i].image}" class="card-img-top" alt="Blog image">
                 <div class="card-body">
                     <h5 class="card-title">${data.results[i].name}</h5>
-                    <p class="card-text">${data.results[i].description}</p>
+                    <p class="card-text">${data.results[i].description.length > 100 ? data.results[i].description.slice(0, 100) + ' ...' : data.results[i].description}</p>
                     <hr class="mt-4">
                     <div style="display:flex;" class="mt-4">
-                        <div id="card_footer" style="width: 100%">
-                            <span>12.2K</span>
-                            <p class="views" style="display: inline;">Views</p>
-                        </div>
                         <div class="icons" style="display: flex;">
                             <div class="circle">
                                 <a href="${data.results[i].linkedin}"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -263,5 +260,162 @@ async function getCardsBlogs(currentpage = 1) {
 }
 getCardsBlogs();
 // End Fetch Blogs
+
+
+// Form Excel [0]
+const scriptURLs = 'https://script.google.com/macros/s/AKfycbxyCpak5TrAoy0Rv4gkD9PYlFvFKlkIZS8zk3HU4sXjQr7DEl0KtYNIxLONimHTFAE/exec';
+const formHome = document.forms[0];
+
+formHome.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURLs, { method: 'POST', body: new FormData(formHome) })
+        .then(response => showCustomAlertHome("Thank you! Your form is submitted successfully."))
+        .catch(error => console.error('Error!', error.message));
+    console.log("Submit")
+    formHome.reset();
+
+});
+function showCustomAlertHome(message) {
+    const alertBox = document.getElementById('custom-alert');
+    const alertMessage = document.getElementById('alert-message');
+    alertMessage.textContent = message;
+    alertBox.classList.remove('hidden');
+
+    document.body.style.overflow = 'hidden';
+
+    document.getElementById('close-alert').addEventListener('click', () => {
+        alertBox.classList.add('hidden');
+
+        document.body.style.overflow = 'auto';
+    });
+}
+// Form Excel [1]
+const scriptURL = 'https://script.google.com/macros/s/AKfycby-3FY0-GaUuzFm_IttKW4pMoFnELeMXpmGYhC-Yp8aU6o064_-5d6kv1PGRifBuww/exec';
+const form = document.forms[1];
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => showCustomAlert("Thank you! Your form is submitted successfully."))
+        .catch(error => console.error('Error!', error.message));
+    console.log("Submit")
+    form.reset();
+});
+function showCustomAlert(message) {
+    const alertBox = document.getElementById('custom-alert-contact');
+    const alertMessage = document.getElementById('alert-message-contact');
+    alertMessage.textContent = message;
+    alertBox.classList.remove('hidden');
+
+      document.body.style.overflow = 'hidden';
+
+    document.getElementById('close-alert-contact').addEventListener('click', () => {
+        alertBox.classList.add('hidden');
+
+        document.body.style.overflow = 'auto';
+    });
+}
+
+// Button Search Mobile & tablet
+const suggestionsMobileData = [
+    "Committees", "UX-UI", "Flutter", "python", "Graphic Design", "Back-End",
+    "Front-End", "PR", "HR", "Marketing", "Developers", "Techoons", 
+    "Logistics", "Media", "Team", "Sponsors", "Features"
+  ];
+  
+  function showSuggestions(query, suggestionsContainer, inputField) {
+    suggestionsContainer.innerHTML = ''; 
+  
+    if (query.length > 0) {
+      const filteredSuggestions = suggestionsMobileData.filter(item =>
+        item.toLowerCase().includes(query)
+      );
+  
+      filteredSuggestions.forEach(suggestion => {
+        const div = document.createElement('div');
+        div.textContent = suggestion;
+        div.classList.add('suggestion-item');
+        div.addEventListener('click', () => {
+          inputField.value = suggestion;
+          suggestionsContainer.innerHTML = '';
+          suggestionsContainer.style.display = 'none'; 
+          performSearch(inputField);
+        });
+        suggestionsContainer.appendChild(div);
+      });
+      suggestionsContainer.style.display = 'block';
+    } else {
+      suggestionsContainer.style.display = 'none';
+    }
+  }
+  function performSearch(inputField) {
+    const searchTerm = inputField.value.toLowerCase();
+    highlightItems(searchTerm);
+  }
+  function highlightItems(term) {
+    const selectors = ['.sections', '.headings', '.allCommittees', '.non_tect'];
+    selectors.forEach(selector => {
+      document.querySelectorAll(selector).forEach(item => {
+        const text = item.querySelector('.text, #bestStudent, .infoTitle, .non-tech-title')?.innerText.toLowerCase() || '';
+        if (text.includes(term)) {
+          item.classList.add('highlight');
+          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          item.classList.remove('highlight');
+        }
+      });
+    });
+  }
+  const searchInputMobile = document.getElementById('searchBtns');
+  const suggestionsMobileContainer = document.getElementById('suggestionss');
+  
+  searchInputMobile.addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    showSuggestions(query, suggestionsMobileContainer, searchInputMobile);
+  });
+  
+  document.getElementById('searchButtons').addEventListener('click', () => performSearch(searchInputMobile));
+  
+  searchInputMobile.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      performSearch(searchInputMobile);
+    }
+  });
+    const searchInputDesktop = document.getElementById('searchBtn');
+  const suggestionsDesktopContainer = document.getElementById('suggestions');
+  
+  searchInputDesktop.addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    showSuggestions(query, suggestionsDesktopContainer, searchInputDesktop);
+  });
+  
+  document.getElementById('searchButton').addEventListener('click', () => performSearch(searchInputDesktop));
+  
+  searchInputDesktop.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      performSearch(searchInputDesktop);
+    }
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
 
 

@@ -84,7 +84,7 @@ function getAllGallery(pageNum) {
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log("Gallery : ", data["results"]);
+      // console.log("Gallery : ", data["results"]);
 
       // console.log(data["results"].length);
       document.querySelector("#imageGridAll").innerHTML = ``;
@@ -2226,3 +2226,313 @@ function scrollToTop() {
 }
 
 window.addEventListener("beforeunload", scrollToTop);
+
+
+
+document.querySelectorAll('.info').forEach(anchor => {
+  anchor.addEventListener('click', function () {
+    const mains = document.querySelectorAll('main');
+    const navItems = document.querySelectorAll('.nav-item');
+    const navLink = document.querySelectorAll('.nav-link');
+    mains.forEach((m) => {
+      m.style.opacity = 0;
+      setTimeout(function () {
+        m.style.display = "none";
+      }, 700);
+    });
+    navItems.forEach((nav) => {
+      nav.classList.remove('active');
+    });
+    navLink.forEach((nav) => {
+      nav.classList.remove('active');
+    });
+    dropdownItem.forEach((item) => {
+      item.classList.remove("active");
+      dropdownItem[0].classList.add('active');
+    });
+    const targetSectionId = this.getAttribute('data-for');
+    const targetSection = document.getElementById(targetSectionId);
+    setTimeout(() => {
+      mains[3].style.display = "block";
+    }, 800);
+    setTimeout(() => {
+      mains[3].style.opacity = "1";
+      AnimationInfo();
+    }, 900);
+    const relatedNavItem = document.querySelector(`.nav-link[data-for="${targetSection}"]`);
+    if (relatedNavItem) {
+      relatedNavItem.classList.add('active');
+    }
+  });
+});
+
+document.querySelectorAll('.team').forEach(button => {
+  button.addEventListener('click', function () {
+    const mains = document.querySelectorAll('main');
+    const navItems = document.querySelectorAll('.nav-item');
+    const navLink = document.querySelectorAll('.nav-link');
+    mains.forEach((m) => {
+      m.style.opacity = 0;
+      setTimeout(function () {
+        m.style.display = "none";
+      }, 700);
+    });
+    navItems.forEach((nav) => {
+      nav.classList.remove('active');
+    });
+    navLink.forEach((nav) => {
+      nav.classList.remove('active');
+    });
+    dropdownItem.forEach((item) => {
+      item.classList.remove("active");
+      dropdownItem[1].classList.add('active');
+    });
+    const targetSectionId = this.getAttribute('data-for');
+    const targetSection = document.getElementById(targetSectionId);
+    setTimeout(() => {
+      mains[4].style.display = "block";
+    }, 800);
+    setTimeout(() => {
+      mains[4].style.opacity = "1";
+    }, 900);
+    setTimeout(() => {
+      AnimationOurTeam();
+    }, 1000);
+    const relatedNavItem = document.querySelector(`.nav-link[data-for="${targetSection}"]`);
+    if (relatedNavItem) {
+      relatedNavItem.classList.add('active');
+    }
+  });
+});
+
+document.querySelectorAll('.blog').forEach(button => {
+  button.addEventListener('click', function () {
+    const mains = document.querySelectorAll('main');
+    const navItems = document.querySelectorAll('.nav-item');
+    const navLink = document.querySelectorAll('.nav-link');
+    mains.forEach((m) => {
+      m.style.opacity = 0;
+      setTimeout(function () {
+        m.style.display = "none";
+      }, 700);
+    });
+    navItems.forEach((nav) => {
+      nav.classList.remove('active');
+    });
+    navLink.forEach((nav) => {
+      nav.classList.remove('active');
+    });
+    dropdownItem.forEach((item) => {
+      item.classList.remove("active");
+      dropdownItem[2].classList.add('active');
+    });
+    const targetSectionId = this.getAttribute('data-for');
+    const targetSection = document.getElementById(targetSectionId);
+    setTimeout(() => {
+      mains[5].style.display = "block";
+    }, 800);
+    setTimeout(() => {
+      mains[5].style.opacity = "1";
+    }, 900);
+    setTimeout(() => {
+      AnimationBlog();
+    }, 1000);
+    const relatedNavItem = document.querySelector(`.nav-link[data-for="${targetSection}"]`);
+    if (relatedNavItem) {
+      relatedNavItem.classList.add('active');
+    }
+  });
+});
+document.querySelectorAll('.ourGallery').forEach(button => {
+  button.addEventListener('click', function () {
+    const mains = document.querySelectorAll('main');
+    const navItems = document.querySelectorAll('.nav-item');
+    const navLink = document.querySelectorAll('.nav-link');
+    mains.forEach((m) => {
+      m.style.opacity = 0;
+      setTimeout(function () {
+        m.style.display = "none";
+      }, 700);
+    });
+    navItems.forEach((nav) => {
+      nav.classList.remove('active');
+    });
+    navLink.forEach((nav) => {
+      nav.classList.remove('active');
+    });
+    const targetSectionId = this.getAttribute('data-for');
+    const targetSection = document.getElementById(targetSectionId);
+    setTimeout(() => {
+      mains[2].style.display = "block";
+    }, 800);
+    setTimeout(() => {
+      mains[2].style.opacity = "1";
+      navItems[2].classList.add('active');
+      Array.from(myImage)
+        .slice(0, 5)
+        .forEach((e) => {
+          e.classList.add("show");
+        });
+    }, 900);
+    setTimeout(() => {
+      getAllGallery(localStorage.getItem("pageNum") || pageNum);
+    }, 1000);
+    checkNetworkSpeed();
+    imagesGallery.forEach((item) => {
+      item.onclick = function () {
+        imagesGallery.forEach((i) => {
+          i.classList.remove("activate");
+        });
+        if (item == imagesGallery[0]) {
+          getAllGallery(localStorage.getItem(pageNum) || pageNum || 1);
+          getAll();
+        } else if (item == imagesGallery[1]) {
+          getEventsGallery(localStorage.getItem(pageNum) || pageNum || 1);
+          getEvents();
+        } else {
+          getSessionsGallery(localStorage.getItem(pageNum) || pageNum || 1);
+          getSessions();
+        }
+        item.classList.add("activate");
+      };
+    });
+    const relatedNavItem = document.querySelector(`.nav-link[data-for="${targetSection}"]`);
+    if (relatedNavItem) {
+      relatedNavItem.classList.add('active');
+    }
+  });
+});
+
+document.querySelectorAll('.all_footer_links').forEach(button => {
+  button.addEventListener('click', function () {
+    const mains = document.querySelectorAll('main');
+    const navItems = document.querySelectorAll('.nav-item');
+    const navLink = document.querySelectorAll('.nav-link');
+    mains.forEach((m) => {
+      m.style.opacity = 0;
+      setTimeout(function () {
+        m.style.display = "none";
+      }, 700);
+    });
+    navItems.forEach((nav) => {
+      nav.classList.remove('active');
+    });
+    navLink.forEach((nav) => {
+      nav.classList.remove('active');
+    });
+    const targetSectionId = this.getAttribute('data-for');
+    const targetSection = document.getElementById(targetSectionId);
+    setTimeout(() => {
+      mains[0].style.display = "block";
+    }, 800);
+    setTimeout(() => {
+      mains[0].style.opacity = "1";
+      navLink[0].classList.add('actiive');
+      navItems[0].classList.add('actiive');
+      setTimeout(() => {
+        AnimationHome();
+      }, 100);
+
+      setTimeout(() => {
+        document.querySelectorAll(
+          ".main-effect"
+        )[0].style.cssText = `animation: showing-text 2s, cursor 0.4s step-end alternate;`;
+      }, 100);
+
+      setTimeout(function adding() {
+        document.querySelectorAll(".ourCommitteesDescription")[0] === null ||
+          document.querySelectorAll(".ourCommitteesDescription")[0] === void 0
+          ? void 0
+          : document
+            .querySelectorAll(".ourCommitteesDescription")[0]
+            .classList.add("show1");
+      }, 2000);
+    }, 900);
+    const relatedNavItem = document.querySelector(`.nav-link[data-for="${targetSection}"]`);
+    if (relatedNavItem) {
+      relatedNavItem.classList.add('active');
+    }
+  });
+});
+
+// Read more buttons
+// document.querySelectorAll('.btn-sections').forEach(button => {
+//   button.addEventListener('click', function() {
+//     const mains = document.querySelectorAll('main');
+//     const navItems = document.querySelectorAll('.nav-item');
+//     const navLink = document.querySelectorAll('.nav-link');
+//     mains.forEach((m) => {
+//       m.style.opacity = 0;
+//       setTimeout(function () {
+//         m.style.display = "none";
+//       }, 700);
+//     });
+//     navItems.forEach((nav) => {
+//       nav.classList.remove('active');
+//     });
+//     navLink.forEach((nav) => {
+//       nav.classList.remove('active');
+//     });
+//     const targetSectionId = this.getAttribute('data-for');
+//     const targetSection = document.getElementById(targetSectionId);
+//     setTimeout(() => {
+//       targetSection.style.display = "block";
+//     }, 800);
+//     setTimeout(() => {
+//       targetSection.style.opacity = "1";
+//     }, 900);
+//     const relatedNavItem = document.querySelector(`.nav-link[data-for="${targetSection}"]`);
+//     if (relatedNavItem) {
+//       relatedNavItem.classList.add('active');
+//     }
+//   });
+// });
+// document.querySelectorAll('.nav-link').forEach(navLink => {
+//   navLink.addEventListener('click', function() {
+//     document.querySelectorAll('.nav-link').forEach(link => {
+//       link.classList.remove('active');
+//     });
+//     this.classList.add('active');
+//   });
+// });
+
+document.querySelectorAll('.btn-sections').forEach(button => {
+  button.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const mains = document.querySelectorAll('main');
+    const navItems = document.querySelectorAll('.nav-item');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    mains.forEach((m) => {
+      m.style.opacity = 0;
+      setTimeout(function () {
+        m.style.display = "none";
+      }, 700);
+    });
+    navItems.forEach(nav => nav.classList.remove('active'));
+    navLinks.forEach(link => link.classList.remove('active'));
+    const targetSectionId = this.getAttribute('data-for');
+    const targetSection = document.getElementById(targetSectionId);
+
+    // Check if the target section exists
+    if (targetSection) {
+      // Show and fade in the target section
+      setTimeout(() => {
+        targetSection.style.display = "block";
+        targetSection.style.opacity = "1";
+        // if (targetSection == navItems[1]) {
+        //   navItems[1].classList.add('active');
+        // }
+      }, 800);
+    } else {
+      console.error(`No section found with ID: ${targetSectionId}`);
+    }
+
+    // Activate the related nav item
+    const relatedNavItem = document.querySelector(`.nav-link[data-for="${targetSection}"]`);
+    if (relatedNavItem) {
+      relatedNavItem.classList.add('active');
+    }
+  });
+});

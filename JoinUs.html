@@ -53,51 +53,52 @@
 
     </div>
     <div id="joinUs">
-        <form id="registerForm" class="container-registeration-form container">
+        <form id="registerForm" class="container-registeration-form container" name="Register" method="post">
 
             <div class="container-inputs">
                 <div>
                     <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <input type="text" id="name" name="Name" placeholder="Enter your name" required>
                 </div>
 
                 <div>
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <input type="email" id="email" name="Email" placeholder="Enter your email" required>
                 </div>
             </div>
 
             <div class="container-inputs">
                 <div>
                     <label for="phone">Phone Number (WhatsApp)</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Enter your WhatsApp number" required>
+                    <input type="tel" id="phone" name="Phone Number" placeholder="Enter your WhatsApp number" required>
                 </div>
                 <div>
                     <label for="altPhone">Another Phone Number (optional)</label>
-                    <input type="tel" id="altPhone" name="altPhone" placeholder="Enter another phone number">
+                    <input type="tel" id="altPhone" name=" Another Phone Number"
+                        placeholder="Enter another phone number">
                 </div>
             </div>
 
             <div class="container-inputs">
                 <div>
                     <label for="facebook">Facebook Link</label>
-                    <input type="url" id="facebook" name="facebook" placeholder="Enter your Facebook link" required>
+                    <input type="url" id="facebook" name="Facebook" placeholder="Enter your Facebook link" required>
                 </div>
                 <div>
                     <label for="faculty">Faculty</label>
-                    <input type="text" id="faculty" name="faculty" placeholder="Enter your faculty" required>
+                    <input type="text" id="faculty" name="Faculty" placeholder="Enter your faculty" required>
                 </div>
             </div>
 
             <div class="container-inputs">
                 <div>
                     <label for="university">University</label>
-                    <input type="text" id="university" name="university" placeholder="Enter your university" required>
+                    <input type="text" id="university" name="University" placeholder="Enter your university" required>
                 </div>
                 <div>
                     <label for="academicYear">Academic Year</label>
-                    <select name="academicYear" id="academicYear" required>
-                        <option value="" disabled selected>Select your academic year</option>
+                    <select name="Academic Year" id="academicYear" required>
+                        <option value="" disabled selected>Select Your Academic Year</option>
                         <option value="1st Academic year">1st Academic Year</option>
                         <option value="2nd Academic year">2nd Academic Year</option>
                         <option value="3rd Academic year">3rd Academic Year</option>
@@ -111,23 +112,23 @@
             <div class="container-inputs">
                 <div>
                     <label for="aboutMSP">What do you know about MSP?</label>
-                    <textarea id="aboutMSP" name="aboutMSP" placeholder="Write what you know about MSP"
+                    <textarea id="aboutMSP" name="About MSP" placeholder="Write what you know about MSP"
                         required></textarea>
                 </div>
                 <div>
                     <label for="whyJoin">Why do you want to join us?</label>
-                    <textarea id="whyJoin" name="whyJoin" placeholder="Write why you want to join" required></textarea>
+                    <textarea id="whyJoin" name="Why Join" placeholder="Write why you want to join" required></textarea>
                 </div>
             </div>
 
             <div>
                 <label for="experience">Previous Experience (optional)</label>
-                <textarea id="experience" name="experience" placeholder="Write your previous experience"></textarea>
+                <textarea id="experience" name="Experience" placeholder="Write your previous experience"></textarea>
             </div>
 
             <div>
                 <label for="firstTrack">Choose your 1st Track</label>
-                <select id="firstTrack" name="firstTrack" required>
+                <select id="firstTrack" name="First Track" required>
                     <option value="" disabled selected>Select Track</option>
                     <option value="UX-UI Design">UX-UI Design</option>
                     <option value="Front-End">Front-End</option>
@@ -156,7 +157,7 @@
 
             <div>
                 <label for="secondTrack">Choose your 2nd Track</label>
-                <select id="secondTrack" name="secondTrack" required>
+                <select id="secondTrack" name="Second Track" required>
                     <option value="" disabled selected>Select Track</option>
                     <option value="UX-UI Design">UX-UI Design</option>
                     <option value="Front-End">Front-End</option>
@@ -185,14 +186,60 @@
 
             <div>
                 <label for="questions">Any Questions? (optional)</label>
-                <textarea id="questions" name="questions" placeholder="Write any questions you have"></textarea>
+                <textarea id="questions" name="Questions" placeholder="Write any questions you have"></textarea>
             </div>
-
             <button type="submit">Send</button>
         </form>
+
     </div>
+    <div id="custom-alert" class="custom-alert hidden">
+        <div class="alert-content">
+          <span class="close-btn">&times;</span>
+          <i class="fa-solid fa-check"></i>
+          <p id="alert-message">Thank you! Your form is submitted successfully.</p>
+        </div>
+      </div>
     <script src="https://kit.fontawesome.com/306f44334f.js" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
+    <script>
+        const scriptURLS = 'https://script.google.com/macros/s/AKfycbzadKVZ8QhRQwD-fSbE7MxsqEXsDCBlQ2oh_O459vAuLhAE8SaqI6mZwEBBXShUcXyR/exec';
+        const FormDataHome = document.forms['Register'];
+        const modal = document.getElementById('custom-alert');
+        const closeBtn = document.querySelector('.close-btn');
+        const alertMessage = document.getElementById('alert-message');
+        
+        FormDataHome.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURLS, { method: 'POST', body: new FormData(FormDataHome) })
+                .then(response => {
+                    alertMessage.textContent = "Thank you! Your form is submitted successfully.";
+                    modal.classList.remove('hidden');
+                    document.body.classList.add('no-scroll'); 
+                })
+                .catch(error => {
+                    alertMessage.textContent = `Error: ${error.message}`;
+                    modal.classList.remove('hidden');
+                    document.body.classList.add('no-scroll'); 
+                });
+        });
+        
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.classList.remove('no-scroll'); // تمكين التمرير
+            FormDataHome.reset(); // مسح بيانات النموذج
+          }
+          
+          closeBtn.addEventListener('click', closeModal);
+          
+          // إغلاق الرسالة المنبثقة عند النقر على خارجها
+          window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+              closeModal();
+            }
+          });
+        
+        
+    </script>
 </body>
 
 </html>

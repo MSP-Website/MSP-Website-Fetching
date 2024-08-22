@@ -59,12 +59,14 @@
         flex-wrap: wrap;
         padding-top: 30px;
         gap: 20px 30px;
+        margin: 0px 20px;
 
         .card1 {
             opacity: 0;
             transform: translateX(-100%);
             height: 33vh;
-            .texts{
+
+            .texts {
                 padding-left: 20px !important;
                 padding-right: 3px !important;
             }
@@ -162,7 +164,7 @@
                         width: 35px;
                         height: 35px;
                         border-radius: 50px;
-                        border: 1px solid #ccc;
+                        border: 1px solid #ccc !important;
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -246,10 +248,27 @@
 }
 
 @media (max-width: 767px) {
+    #ourTeam .cards .card1 {
+        opacity: 0;
+        transform: translateX(-100%);
+      height: auto; 
+        border: 2px solid var(--background, #FEE9FF);
+        box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        display: flex;
+        padding: 20px 10px;
+        width: 550px;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
     #ourTeam .content1 {
         text-align: center;
         padding: 15px 0px 0px;
     }
+
     #ourTeam {
         overflow-x: hidden;
 
@@ -274,7 +293,8 @@
 
                 .texts {
                     .paragraph2 {
-                        width: 300px;
+                        width: auto !important;
+
                     }
                 }
             }

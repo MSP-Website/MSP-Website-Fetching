@@ -34,13 +34,20 @@
   color: var(--secondary-text-color) !important;
   font-weight: 400 !important;
 }
-.card-group{
+
+.card-group {
   gap: 20px;
 }
+
+.card-text {
+  min-height: 90px;
+  overflow: hidden;
+}
+
 /* Grid Layout */
 #data .grid {
   display: grid;
-  grid-template-columns: repeat(2 , 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -70,23 +77,23 @@
 
 .icons {
   width: 100%;
-  justify-content: end;
+  /* justify-content: end; */
   gap: 10px;
 }
 
-.fa-brands {
+ .icons .circle .fa-brands{
   color: #030303 !important;
   width: 33px;
   height: 33px;
   border-radius: 50%;
-  border: solid var(--secondary-text-color) 1px;
+  border: solid var(--secondary-text-color) 1px !important; 
   display: flex !important;
   justify-content: center;
   align-items: center;
-  
+
 }
 
-.fa-brands:hover {
+.circle:hover .fa-brands {
   color: var(--main-bg-nav-color) !important;
   background-color: var(--purple-accent) !important;
   cursor: pointer !important;
@@ -115,6 +122,10 @@ a:hover {
 @media screen and (max-width: 767px) {
   #data .grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .icons{
+    display: flex !important; 
+    justify-content: center !important;
   }
 }
 

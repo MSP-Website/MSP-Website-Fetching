@@ -346,6 +346,7 @@ span {
         margin-top: 70px;
         margin-left: auto;
         margin-right: 20px;
+        background-color: #FCFCFC !important;
     }
 
     .timeline .row.timeline-left .timeline-names {
@@ -362,7 +363,6 @@ span {
 
     .timeline .timeline-names {
         text-align: center !important;
-        // rgba(123, 29, 128, 0.60)
         border: 2px solid transparent;
         padding: 12px 24px;
         border-radius: 8px;
@@ -370,6 +370,8 @@ span {
         font-size: 14px;
         font-weight: 600;
         margin: 41px 0 0 0;
+        background: #fcfcfc !important;
+    
 
         // background-color: var(--main-bg-nav-color);
         .des-timeline-names {
@@ -575,7 +577,7 @@ span {
 @media (max-width:1201px) {
     #info {
         .first {
-            gap: 40px;
+            gap: 1px;
         }
 
         .first .main-all {
@@ -771,10 +773,8 @@ span {
 /* tablet */
 @media (max-width: 767.9px) {
     #info {
-
-
         .first {
-            padding: 40px 20px;
+            padding: 7px 20px;
             flex-direction: column-reverse;
         }
 
@@ -1014,10 +1014,11 @@ span {
         .number4 {
             padding: 6px 8px 6px 8px;
         }
-
+        .number3 h1{
+            font-size: 25px;
+        }
         .number1 h1,
         .number2 h1,
-        .number3 h1,
         .number4 h1 {
             font-size: 22px;
         }
@@ -1770,10 +1771,15 @@ color: var(--purple-accent) !important;
         }
 
         .number3 {
-            padding: 35px 18px 16px 18px;
-            border-radius: 8px;
-            border: 2px solid var(--secondary-text-color);
-            grid-area: right;
+        /* padding: 35px 18px 16px 18px; */
+        border-radius: 8px;
+        border: 2px solid var(--secondary-text-color);
+        grid-area: right;
+        width: 126.32px;
+        height: 107.09px;
+        display: grid;
+        align-items: center;
+        justify-content: center;
 
         }
 
@@ -1792,8 +1798,10 @@ color: var(--purple-accent) !important;
         }
 
         .number3 p {
-            font-size: 7px;
+            font-size: 10px;
             color: var(--secondary-text-color);
+            margin-bottom: 24px;
+            font-weight: 500;
         }
 
 
@@ -1807,6 +1815,7 @@ color: var(--purple-accent) !important;
             text-align: center;
             align-items: center;
             padding: 10px;
+            justify-content: center;
         }
 
         .section_one .SectionGrid {
