@@ -1,0 +1,41 @@
+.blog-details .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.blog-details h1 {
+    font-size: 30px;
+    color: #333;
+}
+
+.blog-details img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.blog-details p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.blog-links {
+    margin-top: 20px;
+}
+
+.blog-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    background: #7B1D80;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.blog-links a:hover {
+    background: #571259;
+}
