@@ -1009,9 +1009,11 @@ button:focus {
   transition: var(--transation);
 }
 #home .section_one .SectionGrid .col .carousel-control-prev {
+  margin-top: 14px;
   left: 17%;
 }
 #home .section_one .SectionGrid .col .carousel-control-next {
+  margin-top: 14px;
   right: 17%;
   background-color: var(--purple-accent) !important;
 }
@@ -11924,4 +11926,9 @@ body.no-scroll {
   .alt-reviews-right {
       width: 100%;
   }
+}
+
+.disabled {
+  cursor: not-allowed;
+  background-color: #777777 !important;
 }

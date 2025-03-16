@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const response = await fetch("https://api.msp-alazhar.tech/form");
+        const data = await response.json();
+
+        const joinUsBanner = document.querySelector(".banner-join");
+        const joinUsLink = document.querySelector("a[href='JoinUs.html']");
+
+        if (!data.is_open) {
+            joinUsBanner.classList.add("disabled");
+            joinUsLink.removeAttribute("href"); // Prevent navigation
+            joinUsBanner.style.pointerEvents = "none"; // Disable clicks
+            joinUsBanner.style.opacity = "0.5"; // Visually indicate disabled state
+        }
+    } catch (error) {
+        console.error("Error fetching form status:", error);
+    }
+});
+
+
 // Start Fetch Sponsors
 async function GetCards(currentpage = 1) {
     const requestOptions = {
@@ -92,97 +112,97 @@ GetCards();
 
 // -----------------------------------------------------------------------------------------------------------------------------------------
 // Start Fetch Team in Page 'Team'
-async function getCardsTeamPage(currentpage = 1) {
-    const requestOptions = {
-        method: "GET",
-        redirect: "follow"
-    };
-    var response = await fetch(`https://api.msp-alazhar.tech/teamMembersClient/get?page=${currentpage}&limit=6`, requestOptions);
-    var data = await response.json();
-    console.log("Team Page : ", data);
-    document.getElementById("teams").innerHTML = "";
+// async function getCardsTeamPage(currentpage = 1) {
+//     const requestOptions = {
+//         method: "GET",
+//         redirect: "follow"
+//     };
+//     var response = await fetch(`https://api.msp-alazhar.tech/teamMembersClient/get?page=${currentpage}&limit=6`, requestOptions);
+//     var data = await response.json();
+//     console.log("Team Page : ", data);
+//     document.getElementById("teams").innerHTML = "";
 
-    for (let i = 0; i < data.results.length; i++) {
-        let cardHTML;
-        if (i % 2 === 0) {
-            // Normal structure for even-indexed cards
-            cardHTML = `
-                <div class="card1">
-                    <div class="image">
-                        <img src="${data.results[i].image}" alt="image">
-                    </div>
-                    <div class="texts">
-                        <h3>${data.results[i].name}</h3>
-                        <p>${data.results[i].track}</p>
-                        <p class="paragraph2">${data.results[i].description}</p>
-                    </div>
-                    <div class="icons">
-                        <a href="${data.results[i].facebook}">
-                            <i class="fa-brands fa-facebook fa-xl" style="color: #050505;"></i>
-                        </a>
-                        <a href="${data.results[i].linkedin}">
-                            <i class="fa-brands fa-linkedin fa-xl" style="color: #000000;"></i>
-                        </a>
-                        <a href="${data.results[i].behanceOrGithub}">
-                            <i class="fa-brands fa-github fa-xl" style="color: #050505;"></i>
-                        </a>
-                    </div>
-                </div>
-            `;
-        } else {
-            // Reversed structure for odd-indexed cards
-            cardHTML = `
-                <div class="card1 reverse">
-                    <div class="icons">
-                        <a href="${data.results[i].facebook}">
-                            <i class="fa-brands fa-facebook fa-xl" style="color: #050505;"></i>
-                        </a>
-                        <a href="${data.results[i].linkedin}">
-                            <i class="fa-brands fa-linkedin fa-xl" style="color: #000000;"></i>
-                        </a>
-                        <a href="${data.results[i].behanceOrGithub}">
-                            <i class="fa-brands fa-github fa-xl" style="color: #050505;"></i>
-                        </a>
-                    </div>
-                    <div class="texts">
-                        <h3>${data.results[i].name}</h3>
-                        <p>${data.results[i].track}</p>
-                        <p class="paragraph2">${data.results[i].description}</p>
-                    </div>
-                    <div class="image">
-                        <img src="${data.results[i].image}" alt="image">
-                    </div>
-                </div>
-            `;
-        }
-        document.getElementById("teams").innerHTML += cardHTML;
-    }
+//     for (let i = 0; i < data.results.length; i++) {
+//         let cardHTML;
+//         if (i % 2 === 0) {
+//             // Normal structure for even-indexed cards
+//             cardHTML = `
+//                 <div class="card1">
+//                     <div class="image">
+//                         <img src="${data.results[i].image}" alt="image">
+//                     </div>
+//                     <div class="texts">
+//                         <h3>${data.results[i].name}</h3>
+//                         <p>${data.results[i].track}</p>
+//                         <p class="paragraph2">${data.results[i].description}</p>
+//                     </div>
+//                     <div class="icons">
+//                         <a href="${data.results[i].facebook}">
+//                             <i class="fa-brands fa-facebook fa-xl" style="color: #050505;"></i>
+//                         </a>
+//                         <a href="${data.results[i].linkedin}">
+//                             <i class="fa-brands fa-linkedin fa-xl" style="color: #000000;"></i>
+//                         </a>
+//                         <a href="${data.results[i].behanceOrGithub}">
+//                             <i class="fa-brands fa-github fa-xl" style="color: #050505;"></i>
+//                         </a>
+//                     </div>
+//                 </div>
+//             `;
+//         } else {
+//             // Reversed structure for odd-indexed cards
+//             cardHTML = `
+//                 <div class="card1 reverse">
+//                     <div class="icons">
+//                         <a href="${data.results[i].facebook}">
+//                             <i class="fa-brands fa-facebook fa-xl" style="color: #050505;"></i>
+//                         </a>
+//                         <a href="${data.results[i].linkedin}">
+//                             <i class="fa-brands fa-linkedin fa-xl" style="color: #000000;"></i>
+//                         </a>
+//                         <a href="${data.results[i].behanceOrGithub}">
+//                             <i class="fa-brands fa-github fa-xl" style="color: #050505;"></i>
+//                         </a>
+//                     </div>
+//                     <div class="texts">
+//                         <h3>${data.results[i].name}</h3>
+//                         <p>${data.results[i].track}</p>
+//                         <p class="paragraph2">${data.results[i].description}</p>
+//                     </div>
+//                     <div class="image">
+//                         <img src="${data.results[i].image}" alt="image">
+//                     </div>
+//                 </div>
+//             `;
+//         }
+//         document.getElementById("teams").innerHTML += cardHTML;
+//     }
 
-    if (data.next && data.next.page) {
-        document.getElementById('nextteam').style.display = 'block';
-    } else {
-        document.getElementById('nextteam').style.display = 'none';
-    }
+//     if (data.next && data.next.page) {
+//         document.getElementById('nextteam').style.display = 'block';
+//     } else {
+//         document.getElementById('nextteam').style.display = 'none';
+//     }
 
-    if (currentpage > 1) {
-        document.getElementById('previousteam').style.display = 'block';
-    } else {
-        document.getElementById('previousteam').style.display = 'none';
-    }
+//     if (currentpage > 1) {
+//         document.getElementById('previousteam').style.display = 'block';
+//     } else {
+//         document.getElementById('previousteam').style.display = 'none';
+//     }
 
-    document.getElementById('nextteam').onclick = () => {
-        if (data.next && data.next.page) {
-            getCardsTeamPage(data.next.page);
-        }
-    };
+//     document.getElementById('nextteam').onclick = () => {
+//         if (data.next && data.next.page) {
+//             getCardsTeamPage(data.next.page);
+//         }
+//     };
 
-    document.getElementById('previousteam').onclick = () => {
-        if (data.previous && data.previous.page) {
-            getCardsTeamPage(data.previous.page);
-        }
-    };
-}
-getCardsTeamPage();
+//     document.getElementById('previousteam').onclick = () => {
+//         if (data.previous && data.previous.page) {
+//             getCardsTeamPage(data.previous.page);
+//         }
+//     };
+// }
+// getCardsTeamPage();
 // End Fetch Team in Page 'Team'
 
 // start fetching cards review page
@@ -268,7 +288,7 @@ async function fetchBlogs() {
         const blogs = data.results;
 
         const blogContainer = document.getElementById('blogContainer');
-        blogContainer.innerHTML = ''; // Clear previous content
+        blogContainer.innerHTML = '';
 
         blogs.forEach(blog => {
             const blogCard = document.createElement('div');
@@ -295,80 +315,112 @@ document.addEventListener('DOMContentLoaded', fetchBlogs);
 // end of fetch blogs
 // -----------------------------------------------------------------------------------------------------------------------------------------
 // Start Fetch Blogs
-async function getCardsBlogs(currentpage = 1) {
-    const requestOptions = {
-        method: "GET",
-        redirect: "follow"
-    };
-    var res = await fetch(`https://api.msp-alazhar.tech/blogsClient/get?page=${currentpage}&limit=5`, requestOptions);
-    var data = await res.json();
-    console.log("Blogs : ", data);
+// async function getCardsBlogs(currentpage = 1) {
+//     const requestOptions = {
+//         method: "GET",
+//         redirect: "follow"
+//     };
+//     var res = await fetch(`https://api.msp-alazhar.tech/blogsClient/get?page=${currentpage}&limit=5`, requestOptions);
+//     var data = await res.json();
+//     console.log("Blogs : ", data);
 
-    document.getElementById('group1').innerHTML = "";
-    document.getElementById('group2').innerHTML = "";
+//     document.getElementById('group1').innerHTML = "";
+//     document.getElementById('group2').innerHTML = "";
 
-    for (let i = 0; i < data.results.length; i++) {
-        let cardHTML = `
-            <div class="card mb-3 p-3" style="position:relative;">
-                <div class="box">
-                    <b>${new Date(data.results[i].createdAt).getDate()}</b>
-                    <p>${new Date(data.results[i].createdAt).toLocaleString('en-US', { month: 'short' })}</p>
-                </div>
-                <img src="${data.results[i].image}" class="card-img-top" alt="Blog image">
-                <div class="card-body">
-                    <h5 class="card-title">${data.results[i].name}</h5>
-                    <p class="card-text">${data.results[i].description.length > 100 ? data.results[i].description.slice(0, 100) + ' ...' : data.results[i].description}</p>
-                    <hr class="mt-4">
-                    <div style="display:flex;" class="mt-4">
-                        <div class="icons" style="display: flex;">
-                            <div class="circle">
-                                <a href="${data.results[i].linkedin}"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                            <div class="circle">
-                                <a href="${data.results[i].facebook}"><i class="fa-brands fa-facebook-f"></i></a>
-                            </div>
-                            <div class="circle">
-                                <a href="${data.results[i].instagram}"><i class="fa-brands fa-instagram"></i></a>
-                            </div>
-                            <div class="circle">
-                                <a href="${data.results[i].twitter}"><i class="fa-brands fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        if (i % 2 != 0) {
-            document.getElementById('group1').innerHTML += cardHTML;
-        } else {
-            document.getElementById('group2').innerHTML += cardHTML;
-        }
-    }
-    if (data.next && data.next.page) {
-        document.getElementById('nextBlog').style.display = 'block';
-    }
-    else {
-        document.getElementById('nextBlog').style.display = 'none';
-    }
-    if (currentpage > 1) {
-        document.getElementById('previousBlog').style.display = 'block';
-    }
-    else {
-        document.getElementById('previousBlog').style.display = 'none';
-    }
-    document.getElementById('nextBlog').onclick = () => {
-        if (data.next && data.next.page) {
-            getCardsBlogs(data.next.page)
-        }
-    }
+//     for (let i = 0; i < data.results.length; i++) {
+//         let cardHTML = `
+//             <div class="card mb-3 p-3" style="position:relative;">
+//                 <div class="box">
+//                     <b>${new Date(data.results[i].createdAt).getDate()}</b>
+//                     <p>${new Date(data.results[i].createdAt).toLocaleString('en-US', { month: 'short' })}</p>
+//                 </div>
+//                 <img src="${data.results[i].image}" class="card-img-top" alt="Blog image">
+//                 <div class="card-body">
+//                     <h5 class="card-title">${data.results[i].name}</h5>
+//                     <p class="card-text">${data.results[i].description.length > 100 ? data.results[i].description.slice(0, 100) + ' ...' : data.results[i].description}</p>
+//                     <hr class="mt-4">
+//                     <div style="display:flex;" class="mt-4">
+//                         <div class="icons" style="display: flex;">
+//                             <div class="circle">
+//                                 <a href="${data.results[i].linkedin}"><i class="fa-brands fa-linkedin-in"></i></a>
+//                             </div>
+//                             <div class="circle">
+//                                 <a href="${data.results[i].facebook}"><i class="fa-brands fa-facebook-f"></i></a>
+//                             </div>
+//                             <div class="circle">
+//                                 <a href="${data.results[i].instagram}"><i class="fa-brands fa-instagram"></i></a>
+//                             </div>
+//                             <div class="circle">
+//                                 <a href="${data.results[i].twitter}"><i class="fa-brands fa-twitter"></i></a>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         `;
+//         if (i % 2 != 0) {
+//             document.getElementById('group1').innerHTML += cardHTML;
+//         } else {
+//             document.getElementById('group2').innerHTML += cardHTML;
+//         }
+//     }
+//     if (data.next && data.next.page) {
+//         document.getElementById('nextBlog').style.display = 'block';
+//     }
+//     else {
+//         document.getElementById('nextBlog').style.display = 'none';
+//     }
+//     if (currentpage > 1) {
+//         document.getElementById('previousBlog').style.display = 'block';
+//     }
+//     else {
+//         document.getElementById('previousBlog').style.display = 'none';
+//     }
+//     document.getElementById('nextBlog').onclick = () => {
+//         if (data.next && data.next.page) {
+//             getCardsBlogs(data.next.page)
+//         }
+//     }
 
-    document.getElementById('previousBlog').onclick = () => {
-        if (data.previous && data.previous.page) {
-            getCardsBlogs(data.previous.page)
-        }
+//     document.getElementById('previousBlog').onclick = () => {
+//         if (data.previous && data.previous.page) {
+//             getCardsBlogs(data.previous.page)
+//         }
+//     }
+// }
+// getCardsBlogs();
+
+async function fetchBlogs() {
+    try {
+        const response = await fetch('https://api.msp-alazhar.tech/blogsClient/get');
+        const data = await response.json();
+        const blogs = data.results;
+
+        const blogContainer = document.getElementById('blogContainer-blog');
+        blogContainer.innerHTML = ''; // Clear previous content
+
+        blogs.forEach(blog => {
+            const blogCard = document.createElement('div');
+            blogCard.classList.add('alt-news-card');
+            blogCard.innerHTML = `
+                <img crossorigin="anonymous" src="${blog.image}" alt="${blog.name}">
+                <p class="alt-news-meta">${new Date(blog.createdAt).toLocaleDateString()}</p>
+                <h3 class="alt-news-title">${blog.name}</h3>
+            `;
+            blogCard.addEventListener('click', () => {
+                localStorage.setItem('selectedBlogId', blog._id);
+                window.location.href = 'blog-details.html';
+            });
+
+            blogContainer.appendChild(blogCard);
+        });
+    } catch (error) {
+        console.error('Error fetching blogs:', error);
     }
 }
-getCardsBlogs();
+
+document.addEventListener('DOMContentLoaded', fetchBlogs);
+
 // End Fetch Blogs
 
 
@@ -417,7 +469,7 @@ function showCustomAlert(message) {
     alertMessage.textContent = message;
     alertBox.classList.remove('hidden');
 
-      document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
 
     document.getElementById('close-alert-contact').addEventListener('click', () => {
         alertBox.classList.add('hidden');
@@ -429,101 +481,101 @@ function showCustomAlert(message) {
 // Button Search Mobile & tablet
 const suggestionsMobileData = [
     "Committees", "UX-UI", "Flutter", "python", "Graphic Design", "Back-End",
-    "Front-End", "PR", "HR", "Marketing", "Developers", "Techoons", 
+    "Front-End", "PR", "HR", "Marketing", "Developers", "Techoons",
     "Logistics", "Media", "Team", "Sponsors", "Features"
-  ];
-  
-  function showSuggestions(query, suggestionsContainer, inputField) {
-    suggestionsContainer.innerHTML = ''; 
-  
+];
+
+function showSuggestions(query, suggestionsContainer, inputField) {
+    suggestionsContainer.innerHTML = '';
+
     if (query.length > 0) {
-      const filteredSuggestions = suggestionsMobileData.filter(item =>
-        item.toLowerCase().includes(query)
-      );
-  
-      filteredSuggestions.forEach(suggestion => {
-        const div = document.createElement('div');
-        div.textContent = suggestion;
-        div.classList.add('suggestion-item');
-        div.addEventListener('click', () => {
-          inputField.value = suggestion;
-          suggestionsContainer.innerHTML = '';
-          suggestionsContainer.style.display = 'none'; 
-          performSearch(inputField);
+        const filteredSuggestions = suggestionsMobileData.filter(item =>
+            item.toLowerCase().includes(query)
+        );
+
+        filteredSuggestions.forEach(suggestion => {
+            const div = document.createElement('div');
+            div.textContent = suggestion;
+            div.classList.add('suggestion-item');
+            div.addEventListener('click', () => {
+                inputField.value = suggestion;
+                suggestionsContainer.innerHTML = '';
+                suggestionsContainer.style.display = 'none';
+                performSearch(inputField);
+            });
+            suggestionsContainer.appendChild(div);
         });
-        suggestionsContainer.appendChild(div);
-      });
-      suggestionsContainer.style.display = 'block';
+        suggestionsContainer.style.display = 'block';
     } else {
-      suggestionsContainer.style.display = 'none';
+        suggestionsContainer.style.display = 'none';
     }
-  }
-  function performSearch(inputField) {
+}
+function performSearch(inputField) {
     const searchTerm = inputField.value.toLowerCase();
     highlightItems(searchTerm);
-  }
-  function highlightItems(term) {
+}
+function highlightItems(term) {
     const selectors = ['.sections', '.headings', '.allCommittees', '.non_tect'];
     selectors.forEach(selector => {
-      document.querySelectorAll(selector).forEach(item => {
-        const text = item.querySelector('.text, #bestStudent, .infoTitle, .non-tech-title')?.innerText.toLowerCase() || '';
-        if (text.includes(term)) {
-          item.classList.add('highlight');
-          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          item.classList.remove('highlight');
-        }
-      });
+        document.querySelectorAll(selector).forEach(item => {
+            const text = item.querySelector('.text, #bestStudent, .infoTitle, .non-tech-title')?.innerText.toLowerCase() || '';
+            if (text.includes(term)) {
+                item.classList.add('highlight');
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                item.classList.remove('highlight');
+            }
+        });
     });
-  }
-  const searchInputMobile = document.getElementById('searchBtns');
-  const suggestionsMobileContainer = document.getElementById('suggestionss');
-  
-  searchInputMobile.addEventListener('input', function() {
+}
+const searchInputMobile = document.getElementById('searchBtns');
+const suggestionsMobileContainer = document.getElementById('suggestionss');
+
+searchInputMobile.addEventListener('input', function () {
     const query = this.value.toLowerCase();
     showSuggestions(query, suggestionsMobileContainer, searchInputMobile);
-  });
-  
-  document.getElementById('searchButtons').addEventListener('click', () => performSearch(searchInputMobile));
-  
-  searchInputMobile.addEventListener('keydown', function(event) {
+});
+
+document.getElementById('searchButtons').addEventListener('click', () => performSearch(searchInputMobile));
+
+searchInputMobile.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
-      event.preventDefault();
-      performSearch(searchInputMobile);
+        event.preventDefault();
+        performSearch(searchInputMobile);
     }
-  });
-    const searchInputDesktop = document.getElementById('searchBtn');
-  const suggestionsDesktopContainer = document.getElementById('suggestions');
-  
-  searchInputDesktop.addEventListener('input', function() {
+});
+const searchInputDesktop = document.getElementById('searchBtn');
+const suggestionsDesktopContainer = document.getElementById('suggestions');
+
+searchInputDesktop.addEventListener('input', function () {
     const query = this.value.toLowerCase();
     showSuggestions(query, suggestionsDesktopContainer, searchInputDesktop);
-  });
-  
-  document.getElementById('searchButton').addEventListener('click', () => performSearch(searchInputDesktop));
-  
-  searchInputDesktop.addEventListener('keydown', function(event) {
+});
+
+document.getElementById('searchButton').addEventListener('click', () => performSearch(searchInputDesktop));
+
+searchInputDesktop.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
-      event.preventDefault();
-      performSearch(searchInputDesktop);
+        event.preventDefault();
+        performSearch(searchInputDesktop);
     }
-  });
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
