@@ -11932,3 +11932,167 @@ body.no-scroll {
   cursor: not-allowed;
   background-color: #777777 !important;
 }
+
+
+/* alt history */
+
+.alt-timeline-section {
+  padding: 50px 20px;
+}
+
+.alt-title {
+  font-size: 2em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.alt-description {
+  text-align: center; 
+  font-size: 1.2em;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.alt-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+.alt-timeline-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #7B1D80;
+  transform: translateX(-50%);
+}
+
+.alt-timeline-container {
+  position: relative;
+  padding: 20px 0;
+}
+
+.alt-timeline-item {
+  position: relative;
+  width: 45%;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-in-out;
+}
+
+.alt-timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alt-timeline-item.left {
+  left: -40px;
+  text-align: right;
+}
+
+.alt-timeline-item.right {
+  left: 55%;
+}
+
+.alt-timeline-item .alt-timeline-date {
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.alt-timeline-item .alt-timeline-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.alt-timeline-item.left .alt-timeline-content {
+  flex-direction: row-reverse;
+}
+
+.alt-timeline-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #7B1D80;
+}
+
+.alt-timeline-text {
+  max-width: 250px;
+}
+
+.alt-timeline-text h3 {
+  margin: 0 0 5px;
+  font-size: 1.2em;
+  color: #7B1D80;
+}
+
+.alt-timeline-text p {
+  font-size: 0.95em;
+  color: #444;
+}
+
+@media (max-width: 768px) {
+  .alt-timeline-line {
+      left: 10px;
+  }
+
+  .alt-timeline-item {
+      width: 90%;
+      left: 0;
+      text-align: left;
+  }
+
+  .alt-timeline-item.right {
+      left: 0;
+  }
+
+  .alt-timeline-item .alt-timeline-content {
+      flex-direction: row;
+  }
+}
+
+.alt-timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.alt-timeline-item.left::before {
+  right: -15px;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent white;
+}
+
+.alt-timeline-item.right::before {
+  left: -15px;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+@media (max-width: 768px) {
+  .alt-timeline-item::before {
+      left: -15px;
+      border-width: 10px 15px 10px 0;
+      border-color: transparent white transparent transparent;
+  }
+
+  .alt-timeline-item.left::before {
+      right: auto;
+      left: -15px;
+      border-width: 10px 15px 10px 0;
+  }
+}

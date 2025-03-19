@@ -561,23 +561,57 @@ searchInputDesktop.addEventListener('keydown', function (event) {
     }
 });
 
+// alt history 
 
+document.addEventListener("DOMContentLoaded", async function () {
+    const timelineContainer = document.getElementById("alt-timeline-container");
 
+    try {
+        const response = await fetch("https://api.msp-alazhar.tech/teamHistoryClient/get");
+        const data = await response.json();
 
+        if (!data.results || data.results.length === 0) {
+            timelineContainer.innerHTML = "<p>No history data available.</p>";
+            return;
+        }
 
+        data.results.forEach((entry, index) => {
+            const timelineItem = document.createElement("div");
+            timelineItem.classList.add("alt-timeline-item", index % 2 === 0 ? "left" : "right");
 
+            timelineItem.innerHTML = `
+                <div class="alt-timeline-date">${entry.date}</div>
+                <div class="alt-timeline-content">
+                    <img crossorigin="anonymous" src="${entry.image}" alt="${entry.name}">
+                    <div class="alt-timeline-text">
+                        <h3>${entry.name}</h3>
+                        <p>${entry.description}</p>
+                    </div>
+                </div>
+            `;
+            timelineContainer.appendChild(timelineItem);
+        });
 
+        animateTimeline();
+    } catch (error) {
+        console.error("Error fetching timeline data:", error);
+        timelineContainer.innerHTML = "<p>Failed to load history data. Please try again later.</p>";
+    }
+});
 
+function animateTimeline() {
+    const items = document.querySelectorAll(".alt-timeline-item");
+    
+    function checkVisibility() {
+        items.forEach((item) => {
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
+                item.classList.add("show");
+            }
+        });
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    checkVisibility(); // Run on load
+    window.addEventListener("scroll", checkVisibility);
+}
 
